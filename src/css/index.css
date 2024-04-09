@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Cascadia Code PL';
+  src: url('./assets/fonts/CASCADIACODEPL-REGULAR.TTF');
+}
+
+:root {
+  color-scheme: light dark;
+  font-family: 'Cascadia Code PL';
+}
