@@ -21,7 +21,7 @@ export function App() {
             }}
             className="rounded-xl px-5 py-2 bg-orange-500 border-2"
           >
-            Add count
+            <i>Add count</i>
           </button>
         </div>
       </main>
