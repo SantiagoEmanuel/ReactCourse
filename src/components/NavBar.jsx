@@ -1,3 +1,6 @@
+import shoppingCart from "/icons/shoppingCart.png";
+import shoppingCartBlack from "/icons/shoppingCart-black.png";
+
 export function NavBar() {
   return (
     <nav className="flex items-center gap-5">
@@ -17,10 +20,17 @@ export function NavBar() {
       </a>
       <a
         href="#"
-        className="hover:scale-110 transition-transform"
+        className="hover:scale-110 dark:block hidden transition-transform"
         title="Go to your Shopping Cart"
       >
-        Shopping Cart
+        <img src={shoppingCart} alt="Shopping Cart icon" />
+      </a>
+      <a
+        href="#"
+        className="hover:scale-110 dark:hidden transition-transform"
+        title="Go to your Shopping Cart"
+      >
+        <img src={shoppingCartBlack} alt="Shopping Cart icon" />
       </a>
     </nav>
   );
