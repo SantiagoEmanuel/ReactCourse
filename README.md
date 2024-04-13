@@ -10,7 +10,11 @@ This project is an E-commerce under development from scratch using modern techno
 
 ## Implemented Components
 
-- NavBar: Completed and functional navigation bar component.
+- Header: Container component of the navigation bar.
+- Brand: Site name component.
+- NavBar: Navigation bar component.
+- CategoryList: Component in charge of rendering all the categories of the store in the NavBar.
+- CardWidget: Shopping cart component.
 
 ## Technologies Used
 
@@ -18,8 +22,6 @@ This project is an E-commerce under development from scratch using modern techno
 - React: Open-source JavaScript library for building user interfaces.
 - TailwindCSS: Highly customizable CSS framework.
 - Pnpm: Package manager for JavaScript.
-
-Thank you for your interest in this project!
 
 ---
 
@@ -35,7 +37,11 @@ Este proyecto es un E-commerce en desarrollo desde cero utilizando tecnologías 
 
 ## Componentes Implementados
 
-- NavBar: Componente de barra de navegación completado y funcional.
+- Header: Componente contenedor de la barra de navegacion.
+- Brand: Componente de nombre del sitio.
+- NavBar: Componente de barra de navegación.
+- CategoryList: Componente encargado de renderizar todas las categorias de la tienda en el NavBar.
+- CardWidget: Componente del carrito de compras.
 
 ## Tecnologías Utilizadas
 
@@ -43,5 +49,3 @@ Este proyecto es un E-commerce en desarrollo desde cero utilizando tecnologías 
 - React: Biblioteca JavaScript de código abierto para crear interfaces de usuario.
 - TailwindCSS: Framework de diseño CSS altamente personalizable.
 - Pnpm: Gestor de paquetes para JavaScript.
-
-¡Gracias por tu interés en este proyecto!
