@@ -4,7 +4,6 @@ import { Header } from "./components/Header";
 export function App() {
   const [count, setCount] = useState(0);
 
-  const urls = [{ url: "/", name: "Home" }];
   // Esta constante reemplaza la infomarcion de todas las categorias que sacaria de una API.
   const categories = ["Men's clothes", "Women's clothes"];
 
@@ -18,7 +17,7 @@ export function App() {
 
   return (
     <>
-      <Header urls={urls} categories={categories} count={count}>
+      <Header categories={categories} count={count}>
         E-commerce
       </Header>
       <main className="flex flex-col gap-[50px]">
