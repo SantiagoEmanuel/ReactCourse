@@ -1,37 +1,46 @@
-import shoppingCart from "/icons/shoppingCart.png";
-import shoppingCartBlack from "/icons/shoppingCart-black.png";
+import { CardWidget } from "./CardWidget";
+import { CategoryList } from "./CategoryList";
 
-export function NavBar() {
+export function NavBar({ url, categories, count }) {
   return (
-    <nav className="flex items-center gap-5">
-      <a
-        href="#"
-        className="hover:scale-110 transition-transform"
-        title="Go to Home Page"
-      >
-        Home
-      </a>
-      <a
-        href="#"
-        className="hover:scale-110 transition-transform"
-        title="Go to products"
-      >
-        Products
-      </a>
-      <a
-        href="#"
-        className="hover:scale-110 dark:block hidden transition-transform"
-        title="Go to your Shopping Cart"
-      >
-        <img src={shoppingCart} alt="Shopping Cart icon" />
-      </a>
-      <a
-        href="#"
-        className="hover:scale-110 dark:hidden transition-transform"
-        title="Go to your Shopping Cart"
-      >
-        <img src={shoppingCartBlack} alt="Shopping Cart icon" />
-      </a>
-    </nav>
+    <>
+      <nav className="max-[580px]:hidden flex items-center gap-5">
+        {url.map(({ url, name, imageUrl }) => {
+          return imageUrl != null ? (
+            <a
+              href={url}
+              key={name}
+              className="hover:scale-110 transition-transform"
+            >
+              <img src={imageUrl} alt={name} width={22} />
+            </a>
+          ) : (
+            <a
+              href={url}
+              key={name}
+              className="hover:scale-110 transition-transform"
+            >
+              {name}
+            </a>
+          );
+        })}
+        <CategoryList categories={categories} />
+        <CardWidget cartCount={count} />
+      </nav>
+      <button className="hidden max-[580px]:block cursor-pointer">
+        <img
+          src="/icons/menu/menu.png"
+          alt="Menu icon"
+          width={32}
+          className="dark:block hidden"
+        />
+        <img
+          src="/icons/menu/menu-black.png"
+          alt="Menu icon"
+          width={32}
+          className="dark:hidden"
+        />
+      </button>
+    </>
   );
 }
