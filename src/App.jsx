@@ -4,8 +4,17 @@ import { Header } from "./components/Header";
 export function App() {
   const [count, setCount] = useState(0);
 
-  // Esta constante reemplaza la infomarcion de todas las categorias que sacaria de una API.
-  const categories = ["Men's clothes", "Women's clothes"];
+  // Esta constante reemplaza la información de todas las categorías que sacaría de una API.
+  const categories = [
+    {
+      name: "Men's clothes",
+      url: "men-clothes",
+    },
+    {
+      name: "Women's clothes",
+      url: "women-clothes",
+    },
+  ];
 
   function addCount() {
     setCount(count + 1);
