@@ -57,8 +57,9 @@ export function App() {
           <span className="animate-pulse">─{">"}</span>
           <CustomLink
             to={"https://github.com/SantiagoEmanuel/ReactCourse"}
-            label={"Go to project repository"}
+            label="REPOSITORY"
             className="border-2 rounded-md text-xs text-[#eb6e26] px-3 py-1 hover:bg-[#eb6e26] hover:text-white transition-colors"
+            title={"Go to the project repository"}
             target="_black"
           />
           <span className="animate-pulse">{"<"}─</span>
