@@ -3,6 +3,7 @@ import { Header } from "./components/layout/Header";
 import { CustomLink } from "./components/ui/CustomLink";
 import { Typography } from "./components/ui/Typography";
 import { Analytics } from "@vercel/analytics/react";
+import { Aside } from "./components/layout/Aside";
 
 export function App() {
   const [count, setCount] = useState(0);
@@ -78,6 +79,7 @@ export function App() {
         <Typography As="p">CoderHouse | ReactJS course</Typography>
       </footer>
       <Analytics />
+      <Aside categories={categories} count={count} />
     </>
   );
 }
