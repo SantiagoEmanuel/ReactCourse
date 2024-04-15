@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Header } from "./components/Header";
+import { CustomLink } from "./components/CustomLink";
 
 export function App() {
   const [count, setCount] = useState(0);
@@ -51,7 +52,17 @@ export function App() {
           </div>
         </div>
       </main>
-      <footer>
+      <footer className="flex flex-col items-center gap-2">
+        <div className="flex items-center gap-3">
+          <span className="animate-pulse">─{">"}</span>
+          <CustomLink
+            to={"https://github.com/SantiagoEmanuel/ReactCourse"}
+            label={"Go to project repository"}
+            className="border-2 rounded-md text-xs text-[#eb6e26] px-3 py-1 hover:bg-[#eb6e26] hover:text-white transition-colors"
+            target="_black"
+          />
+          <span className="animate-pulse">{"<"}─</span>
+        </div>
         <p>CoderHouse | ReactJS course</p>
       </footer>
     </>
