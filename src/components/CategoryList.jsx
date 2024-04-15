@@ -1,4 +1,4 @@
-import { CustomLink } from "./CustomLink";
+import { CustomLink } from "./ui/CustomLink";
 
 export function CategoryList({ categories }) {
   return (
