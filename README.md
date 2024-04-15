@@ -37,10 +37,10 @@ Este proyecto es un E-commerce en desarrollo desde cero utilizando tecnologías 
 
 ## Componentes Implementados
 
-- Header: Componente contenedor de la barra de navegacion.
+- Header: Componente contenedor de la barra de navegación.
 - Brand: Componente de nombre del sitio.
 - NavBar: Componente de barra de navegación.
-- CategoryList: Componente encargado de renderizar todas las categorias de la tienda en el NavBar.
+- CategoryList: Componente encargado de renderizar todas las categorías de la tienda en el NavBar.
 - CardWidget: Componente del carrito de compras.
 
 ## Tecnologías Utilizadas
