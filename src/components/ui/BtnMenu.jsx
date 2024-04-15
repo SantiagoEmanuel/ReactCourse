@@ -1,7 +1,6 @@
 export function BtnMenu() {
   function showAside() {
     const aside = document.querySelector("aside");
-    console.log(aside);
     aside.classList.replace("hidden", "flex");
   }
 
