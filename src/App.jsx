@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Header } from "./components/Header";
-import { CustomLink } from "./components/CustomLink";
+import { Header } from "./components/layout/Header";
+import { CustomLink } from "./components/ui/CustomLink";
+import { Typography } from "./components/ui/Typography";
 
 export function App() {
   const [count, setCount] = useState(0);
@@ -31,30 +32,37 @@ export function App() {
         E-commerce
       </Header>
       <main className="flex flex-col gap-[50px]">
-        <h2 className="text-center">Hi, this is my project.</h2>
+        <Typography As="h2" className="text-center">
+          Hi, this is my project.
+        </Typography>
         <div className="flex flex-col items-center justify-center gap-4">
-          <p className="flex items-center justify-center w-[40px] h-[40px] border-2 rounded-full  ">
+          <Typography
+            As="p"
+            className="flex items-center justify-center w-[40px] h-[40px] border-2 rounded-full"
+          >
             {count}
-          </p>
+          </Typography>
           <div className="flex flex-col items-center justify-center gap-4">
             <button
               onClick={addCount}
               className="rounded-xl text-balance px-5 py-2 bg-orange-500 border-2"
             >
-              <i>Add shopping cart notification</i>
+              <Typography As="i">Add shopping cart notification</Typography>
             </button>
             <button
               onClick={removeCount}
               className="rounded-xl text-balance px-5 py-2 bg-orange-500 border-2"
             >
-              <i>Remove shopping cart notification</i>
+              <Typography As="i">Remove shopping cart notification</Typography>
             </button>
           </div>
         </div>
       </main>
       <footer className="flex flex-col items-center gap-2">
         <div className="flex items-center gap-3">
-          <span className="animate-pulse">─{">"}</span>
+          <Typography As="span" className="animate-pulse">
+            ─{">"}
+          </Typography>
           <CustomLink
             to={"https://github.com/SantiagoEmanuel/ReactCourse"}
             label="REPOSITORY"
@@ -62,9 +70,11 @@ export function App() {
             title={"Go to the project repository"}
             target="_black"
           />
-          <span className="animate-pulse">{"<"}─</span>
+          <Typography As="span" className="animate-pulse">
+            {"<"}─
+          </Typography>
         </div>
-        <p>CoderHouse | ReactJS course</p>
+        <Typography As="p">CoderHouse | ReactJS course</Typography>
       </footer>
     </>
   );
