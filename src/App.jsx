@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Header } from "./components/layout/Header";
 import { CustomLink } from "./components/ui/CustomLink";
 import { Typography } from "./components/ui/Typography";
+import { Analytics } from "@vercel/analytics/react";
 
 export function App() {
   const [count, setCount] = useState(0);
@@ -76,6 +77,7 @@ export function App() {
         </div>
         <Typography As="p">CoderHouse | ReactJS course</Typography>
       </footer>
+      <Analytics />
     </>
   );
 }
