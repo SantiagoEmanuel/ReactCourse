@@ -1,6 +1,15 @@
 export function BtnMenu() {
+  function showAside() {
+    const aside = document.querySelector("aside");
+    console.log(aside);
+    aside.classList.replace("hidden", "flex");
+  }
+
   return (
-    <button className="hidden max-[580px]:block cursor-pointer">
+    <button
+      className="hidden max-[580px]:block cursor-pointer"
+      onClick={showAside}
+    >
       <img
         src="/icons/menu/menu.png"
         alt="Menu icon"
