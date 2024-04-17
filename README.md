@@ -10,6 +10,7 @@ This project is an E-commerce under development from scratch using modern techno
 
 ## Implemented Components
 
+<!-- TODO update components -->
 - Header: Container component of the navigation bar.
 - Brand: Site name component.
 - NavBar: Navigation bar component.
@@ -37,6 +38,7 @@ Este proyecto es un E-commerce en desarrollo desde cero utilizando tecnologías 
 
 ## Componentes Implementados
 
+<!-- TODO actualizar componentes -->
 - Header: Componente contenedor de la barra de navegación.
 - Brand: Componente de nombre del sitio.
 - NavBar: Componente de barra de navegación.
@@ -49,3 +51,10 @@ Este proyecto es un E-commerce en desarrollo desde cero utilizando tecnologías 
 - React: Biblioteca JavaScript de código abierto para crear interfaces de usuario.
 - TailwindCSS: Framework de diseño CSS altamente personalizable.
 - Pnpm: Gestor de paquetes para JavaScript.
+
+## TODO
+
+- Manejar carrito de compras.
+- Corregir el reload al buscar por categoria.
+- Revisar y documentar componentes, eliminar los que no son necesarios.
+- Eliminar `<dialog>` y crear la ruta *`/product/:id`*.
