@@ -1,7 +1,7 @@
 {
   "name": "e-commerce",
   "private": true,
-  "version": "DEVELOPING",
+  "version": "BETA-V2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,11 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vercel/analytics": "1.2.2",
-    "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "6.22.3",
+    "react-router-dom": "6.23.0",
     "react-scroll": "1.9.0"
   },
   "devDependencies": {

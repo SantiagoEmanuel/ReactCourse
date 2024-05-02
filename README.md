@@ -1,3 +1,5 @@
+<!-- TODO ACTUALIZAR EL README -->
+
 # E-commerce Project - First Pre-Delivery
 
 Welcome to the first pre-delivery of the E-commerce project!
