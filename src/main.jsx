@@ -5,8 +5,8 @@ import { ItemDetailsContainer } from './components/ItemDetailsContainer'
 import { ErrorView } from './views/ErrorView'
 import { LoginView } from './views/LoginView'
 import { App } from './App'
-import './css/index.css'
 import { CreateProductView } from './views/CreateProductView'
+import './css/index.css'
 
 const router = createBrowserRouter([
   {
