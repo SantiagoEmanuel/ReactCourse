@@ -18,5 +18,6 @@ module.exports = {
       { allowConstantExport: true },
     ],
     "react/prop-types": "off",
+    "react/no-unescaped-entities": "off"
   },
 };
