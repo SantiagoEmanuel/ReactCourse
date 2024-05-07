@@ -12,7 +12,7 @@ export function ItemCount({ stock, initial = 0, id_product }) {
                     method: "POST",
                     headers: {
                          Authorization: user.token,
-                         'Content-Type': 'application/json',
+                         "Content-Type": "application/json",
                          "Access-Control-Allow-Origin": "https://e-commerce-delta-livid-65.vercel.app/"
                     },
                     body: {
