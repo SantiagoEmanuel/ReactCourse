@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { userContext } from '../context/userContext'
 import { userToggleContext } from '../context/userToggleContext'
+import { redirect } from "react-router-dom";
 
 export function UserProvider({ children }) {
 
@@ -26,33 +27,18 @@ export function UserProvider({ children }) {
                                         "user_ID": userInfo.id,
                                         "Access-Control-Allow-Origin": "https://e-commerce-delta-livid-65.vercel.app/"
                                    }
-                              }).then(r => r.json()).then(({ carrito }) => {
-                                   const cart = [];
-                                   carrito.map(([{ id, title, description, price, stock, imageUrl }, { count }], index) => {
-
-                                        cart.push({
-                                             id: id,
-                                             title: title,
-                                             description: description,
-                                             imageUrl: imageUrl,
-                                             price: price,
-                                             stock: stock,
-                                             count: count
-                                        })
-
-                                        if (index == carrito.length - 1) {
-                                             setUser({
-                                                  id: userInfo.id,
-                                                  username: userInfo.username,
-                                                  email: userInfo.email,
-                                                  first_name: userInfo.first_name,
-                                                  last_name: userInfo.last_name,
-                                                  status: userInfo.status,
-                                                  token: token,
-                                                  cart: cart
-                                             })
-                                        }
+                              }).then(r => r.json()).then(({ cart }) => {
+                                   setUser({
+                                        id: userInfo.id,
+                                        username: userInfo.username,
+                                        email: userInfo.email,
+                                        first_name: userInfo.first_name,
+                                        last_name: userInfo.last_name,
+                                        status: userInfo.status,
+                                        token: token,
+                                        cart: cart
                                    })
+                                   redirect('/')
                               })
                          }
                     })
