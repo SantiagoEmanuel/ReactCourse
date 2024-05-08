@@ -1,11 +1,11 @@
 import { Brand } from "./Brand"
 import { CategoriesList } from "./CategoriesList"
-import { CartWidget } from "./CartWidget"
-import { useUserContext } from "../context/userContext"
-import { useUserToggleContext } from '../context/userToggleContext'
+import { CartWidget } from "../ui/CartWidget"
+import { useUserContext } from "../../context/userContext"
+import { useUserToggleContext } from '../../context/userToggleContext'
 import { Link } from "react-router-dom";
-import { MenuIcon } from "./MenuIcon"
-import { showMenu } from "../functions/openAside"
+import { MenuIcon } from "../ui/icons/MenuIcon"
+import { showMenu } from "../../functions/openAside"
 
 export function NavBar() {
      const user = useUserContext();

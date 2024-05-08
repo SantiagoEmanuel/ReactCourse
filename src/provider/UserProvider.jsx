@@ -38,7 +38,7 @@ export function UserProvider({ children }) {
                                         token: token,
                                         cart: cart
                                    })
-                                   redirect('/')
+                                   return redirect('/')
                               })
                          }
                     })

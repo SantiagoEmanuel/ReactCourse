@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { useCategories } from "../hook/useCategories";
-import { closeAside } from "../functions/closeAside";
+import { useCategories } from "../../hook/useCategories";
+import { closeAside } from "../../functions/closeAside";
 
 export function CategoriesList({ css = "flex items-center gap-4" }) {
      const { categories } = useCategories();

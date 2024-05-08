@@ -1,4 +1,4 @@
-import { ItemDetails } from '../components/ItemDetails'
+import { ItemDetails } from '../components/ui/item/ItemDetails'
 import { useProduct } from '../hook/useProduct'
 import { useParams } from 'react-router-dom';
 

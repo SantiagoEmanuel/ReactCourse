@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CartIcon } from './CartIcon';
+import { CartIcon } from './icons/CartIcon';
 
 export function CartWidget({ count = 0 }) {
      const [productCount, setProductCount] = useState(0)

@@ -12,7 +12,7 @@ export function ItemDetails({ id, imgUrl, title, price, description, stock }) {
                          <span>
                               {price}
                          </span>
-                         <ItemCount stock={stock} id_product={id} />
+                         <ItemCount stock={stock} />
                     </section>
                     <section>
                          <p>{description}</p>
