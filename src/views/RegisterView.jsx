@@ -6,7 +6,7 @@ export function RegisterView() {
 
      const handleSubmit = (e) => {
           e.preventDefault();
-          fetch("http://localhost:5000/user", {
+          fetch("https://e-commerce-db-65ce.onrender.com/user", {
                method: "POST",
                headers: {
                     'Content-Type': 'application/json',
