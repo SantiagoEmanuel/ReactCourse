@@ -1,37 +1,52 @@
 import { useState } from 'react';
-import { cartContext } from '../context/cartContext';
-import { useUserContext } from '../context/userContext';
-import { cartToggleContext } from '../context/cartToggleContext';
+import { CartContext } from '../context/CartContext';
+import { CartToggleContext } from '../context/CartToggleContext';
 
 export function CartProvider({ children }) {
+     const [cart, setCart] = useState(null);
+     const [productsIds, setProductsIds] = useState([]);
 
-     const [cart, setCart] = useState(null)
-     const user = useUserContext();
+     const addCart = (userCart) => {
+          if (cart == null) {
+               const ids = []
+               let x = 0
+               userCart?.map(({ id, COUNT }, index) => {
+                    ids.push(id)
+                    x += COUNT
+                    if (index == userCart.length - 1) {
+                         setProductsIds(ids);
+                         setCart(x)
+                         return
+                    }
+               })
+          } else {
+               const ids = productsIds.filter(id => id != userCart[0].id)
+               let x = cart
+               userCart?.map(({ id, COUNT }, index) => {
+                    if (!ids.some(i => i === id)) {
+                         ids.push(id)
+                    }
+                    x += COUNT
+                    if (index == userCart.length - 1) {
+                         setProductsIds(ids);
+                         setCart(x)
+                         return
+                    }
+               })
+               return
+          }
+     }
 
-     const addCart = (product, count) => {
-
-          fetch(`http://localhost:5000/cart`, {
-               method: "GET",
-               headers: {
-                    "user_ID": user.id,
-                    "Authorization": user.token
-               }
-          }).then(r => r.json()).then(data => {
-               console.log(data)
-          })
-
-          setCart({
-               product: product,
-               user_id: user.id,
-               count: count
-          })
+     const removeCart = () => {
+          setCart(null)
+          setProductsIds([])
      }
 
      return (
-          <cartContext.Provider value={cart}>
-               <cartToggleContext.Provider value={addCart}>
+          <CartContext.Provider value={[{ cart, productsIds }]}>
+               <CartToggleContext.Provider value={[{ addCart, removeCart }]}>
                     {children}
-               </cartToggleContext.Provider>
-          </cartContext.Provider>
+               </CartToggleContext.Provider>
+          </CartContext.Provider>
      )
 }
