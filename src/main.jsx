@@ -7,6 +7,7 @@ import { LoginView } from './views/LoginView'
 import { App } from './App'
 import { CreateProductView } from './views/CreateProductView'
 import './css/index.css'
+import { RegisterView } from './views/RegisterView'
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,12 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <LoginView />
-      }, {
+      },
+      {
+        path: '/register',
+        element: <RegisterView />
+      },
+      {
         path: '/create-product',
         element: <CreateProductView />
       }
