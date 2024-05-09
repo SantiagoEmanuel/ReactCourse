@@ -1,4 +1,4 @@
-import { Item } from "./Item";
+import { Item } from "../ui/item/Item";
 
 export function ItemList({ items }) {
      return (

@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { userContext } from '../context/userContext'
-import { userToggleContext } from '../context/userToggleContext'
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from '../context/UserContext'
+import { UserToggleContext } from '../context/UserToggleContext'
+import { useCartToggleContext } from '../hook/useCartToggleContext'
 
 export function UserProvider({ children }) {
 
      const [user, setUser] = useState(null);
+     const navigate = useNavigate();
+     const [{ addCart, removeCart }] = useCartToggleContext();
 
      const loginUser = (username, password) => {
           if (user == null) {
@@ -19,7 +22,7 @@ export function UserProvider({ children }) {
                })
                     .then(r => r.json())
                     .then(({ userInfo, token }) => {
-                         if (userInfo != null && userInfo.status == "admin") {
+                         if (userInfo != null) {
                               fetch("https://e-commerce-db-65ce.onrender.com/cart", {
                                    method: "GET",
                                    headers: {
@@ -38,20 +41,23 @@ export function UserProvider({ children }) {
                                         token: token,
                                         cart: cart
                                    })
-                                   redirect('/')
+                                   addCart(cart)
+                                   return navigate('/')
                               })
                          }
                     })
           } else {
                setUser(null)
+               removeCart()
+               return
           }
      }
 
      return (
-          <userContext.Provider value={user}>
-               <userToggleContext.Provider value={loginUser}>
+          <UserContext.Provider value={user}>
+               <UserToggleContext.Provider value={loginUser}>
                     {children}
-               </userToggleContext.Provider>
-          </userContext.Provider>
+               </UserToggleContext.Provider>
+          </UserContext.Provider>
      )
 }

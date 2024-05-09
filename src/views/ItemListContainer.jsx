@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useProducts } from '../hook/useProducts'
-import { ItemList } from '../components/ItemList'
+import { ItemList } from '../components/containers/ItemList'
 
 export function ItemListContainer() {
      const { category } = useParams();

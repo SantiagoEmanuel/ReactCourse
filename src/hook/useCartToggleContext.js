@@ -1,6 +1,6 @@
 import { useContext } from "react"
-import { cartToggleContext } from "../context/cartToggleContext"
+import { CartToggleContext } from "../context/CartToggleContext"
 
 export const useCartToggleContext = () => {
-     return useContext(cartToggleContext)
+     return useContext(CartToggleContext)
 }

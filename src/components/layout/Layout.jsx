@@ -1,6 +1,6 @@
-import { closeAside } from "../functions/closeAside";
+import { closeAside } from "../../functions/closeAside";
 import { CategoriesList } from "./CategoriesList";
-import { CloseIcon } from "./CloseIcon";
+import { CloseIcon } from "../ui/icons/CloseIcon";
 import { NavBar } from "./NavBar";
 
 export function Layout({ children }) {

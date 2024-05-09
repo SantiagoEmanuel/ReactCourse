@@ -1,4 +1,4 @@
-import { useUserContext } from "../context/userContext"
+import { useUserContext } from "../hook/useUserContext"
 
 export function CreateProductView() {
 
@@ -6,22 +6,20 @@ export function CreateProductView() {
 
      function handleSubmit(e) {
           e.preventDefault();
-          fetch('http://localhost:5000/products', {
+          fetch('https://e-commerce-db-65ce.onrender.com/products', {
                method: "POST",
                headers: {
                     "Content-Type": "application/json",
                     "Authorization": user.token
                },
-               body: [
-                    {
-                         "title": JSON.stringify(e.target.title.value),
-                         "imageUrl": JSON.stringify(e.target.imageUrl.value),
-                         "description": JSON.stringify(e.target.description.value),
-                         "category": JSON.stringify(e.target.category.value),
-                         "stock": JSON.stringify(e.target.stock.value),
-                         "price": JSON.stringify(e.target.price.value)
-                    }
-               ]
+               body: JSON.stringify({
+                    title: e.target.title.value,
+                    imageUrl: e.target.imageUrl.value,
+                    description: e.target.description.value,
+                    category: e.target.category.value,
+                    stock: e.target.stock.value,
+                    price: e.target.price.value
+               })
           })
      }
 
