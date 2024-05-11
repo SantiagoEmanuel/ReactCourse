@@ -3,19 +3,21 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from '../context/UserContext'
 import { UserToggleContext } from '../context/UserToggleContext'
 import { useCartToggleContext } from '../hook/useCartToggleContext'
+import { useCartContext } from "../hook/useCartContext";
 
 export function UserProvider({ children }) {
 
      const [user, setUser] = useState(null);
+     const { addCart, removeCart } = useCartToggleContext();
+     const { cart } = useCartContext()
      const navigate = useNavigate();
-     const [{ addCart, removeCart }] = useCartToggleContext();
 
      const loginUser = (username, password) => {
           if (user == null) {
                fetch(`https://e-commerce-db-65ce.onrender.com/user`, {
                     method: "GET",
                     headers: {
-                         username: username,
+                         username: username.toLowerCase(),
                          password: password,
                          "Access-Control-Allow-Origin": "https://e-commerce-delta-livid-65.vercel.app/"
                     },
@@ -47,15 +49,40 @@ export function UserProvider({ children }) {
                          }
                     })
           } else {
-               setUser(null)
+               upgradeCart()
                removeCart()
-               return
+               return setUser(null)
           }
+     }
+
+     const upgradeCart = () => {
+
+          console.log(JSON.stringify([{
+               cart: cart,
+               id: user.id
+          }]))
+
+          fetch("https://e-commerce-db-65ce.onrender.com/cart", {
+               method: "POST",
+               headers: {
+                    Authorization: user.token,
+                    "Access-Control-Allow-Origin": "http://localhost:5173",
+                    'Content-Type': 'application/json'
+               },
+               body: JSON.stringify({
+                    id_user: user.id,
+                    cart: cart
+               })
+          })
+               .then(r => r.json())
+               .then(data => {
+                    console.log(data)
+               })
      }
 
      return (
           <UserContext.Provider value={user}>
-               <UserToggleContext.Provider value={loginUser}>
+               <UserToggleContext.Provider value={{ loginUser, upgradeCart }}>
                     {children}
                </UserToggleContext.Provider>
           </UserContext.Provider>
