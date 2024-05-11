@@ -6,8 +6,9 @@ import { ErrorView } from './views/ErrorView'
 import { LoginView } from './views/LoginView'
 import { App } from './App'
 import { CreateProductView } from './views/CreateProductView'
-import './css/index.css'
 import { RegisterView } from './views/RegisterView'
+import { CartView } from './views/CartView'
+import './css/index.css'
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: '/create-product',
         element: <CreateProductView />
+      },
+      {
+        path: '/cart',
+        element: <CartView />
       }
     ],
     errorElement: <ErrorView />
