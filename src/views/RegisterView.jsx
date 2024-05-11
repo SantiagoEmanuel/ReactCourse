@@ -30,7 +30,7 @@ export function RegisterView() {
 
      return (
           <section className=" flex flex-col items-center w-full gap-8">
-               <h2 className="text-3xl text-orange-600">Create your user</h2>
+               <h2 className="text-3xl text-center">Create your user</h2>
                <form onSubmit={handleSubmit} className="flex flex-col w-full max-w-screen-sm gap-4">
                     <label className="flex flex-col w-full gap-1">
                          Username
