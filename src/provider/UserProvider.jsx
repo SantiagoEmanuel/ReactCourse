@@ -56,12 +56,6 @@ export function UserProvider({ children }) {
      }
 
      const upgradeCart = () => {
-
-          console.log(JSON.stringify([{
-               cart: cart,
-               id: user.id
-          }]))
-
           fetch("https://e-commerce-db-65ce.onrender.com/cart", {
                method: "POST",
                headers: {
@@ -76,7 +70,7 @@ export function UserProvider({ children }) {
           })
                .then(r => r.json())
                .then(data => {
-                    console.log(data)
+                    console.log(data.cart)
                })
      }
 
