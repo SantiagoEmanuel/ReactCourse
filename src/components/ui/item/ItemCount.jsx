@@ -1,10 +1,9 @@
 import { useCount } from '../../../hook/useCount'
 import { useCartToggleContext } from '../../../hook/useCartToggleContext'
 
-export function ItemCount({ stock, initial = 0, productID = null }) {
+export function ItemCount({ stock, initial, productID = null }) {
      const { count, add, remove } = useCount(initial, stock);
-
-     const [{ addCart }] = useCartToggleContext()
+     const { addCart } = useCartToggleContext()
 
      return (
           <div className='flex flex-col gap-4'>
