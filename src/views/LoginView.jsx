@@ -11,7 +11,7 @@ export function LoginView() {
 
      return (
           <section className=" flex flex-col items-center w-full gap-8">
-               <i className="text-2xl font-bold text-center text-red-600">Only admins can log in now.</i>
+               <h2 className="text-2xl font-bold text-center">Log in</h2>
                <form onSubmit={handleSubmit} className="flex flex-col w-full max-w-screen-sm gap-4">
                     <label className="flex flex-col w-full" >
                          Username:
