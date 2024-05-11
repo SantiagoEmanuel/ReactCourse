@@ -1,6 +1,10 @@
 import { ItemCount } from './ItemCount'
+import { useCartContext } from '../../../hook/useCartContext';
 
 export function ItemDetails({ id, imgUrl, title, price, description, stock }) {
+
+     const { cart } = useCartContext();
+
      return (
           <article className="flex flex-col gap-2 rounded-lg" key={id}>
                <header>
@@ -12,7 +16,7 @@ export function ItemDetails({ id, imgUrl, title, price, description, stock }) {
                          <span>
                               {price}
                          </span>
-                         <ItemCount stock={stock} productID={id} />
+                         <ItemCount stock={stock} productID={id} initial={cart ? cart[id] : 0} />
                     </section>
                     <section>
                          <p>{description}</p>
