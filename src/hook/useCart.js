@@ -18,14 +18,7 @@ export const useCart = () => {
           return
      }
 
-     const deleteCart = () => {
-          setQuantity(0)
-          setCart(null)
-          return
-     }
-
      const upgradeCart = (id, token, cart) => {
-          console.log(cart)
           fetch("https://e-commerce-db-65ce.onrender.com/cart", {
                method: "POST",
                headers: {
@@ -44,11 +37,36 @@ export const useCart = () => {
                })
      }
 
+     const deleteCart = () => {
+          setQuantity(0)
+          setCart(null)
+          return
+     }
+
+     const deleteItemCart = (id) => {
+          const arrayCart = Object.entries(cart)
+          if (arrayCart.length == 1) {
+               setCart(null)
+               setQuantity(0)
+               return
+          }
+          const newCart = {}
+          arrayCart.map(([key, value]) => {
+               if (id != key) {
+                    newCart[key] = value
+               }
+          })
+          setQuantity(quantity - cart[id])
+          setCart(newCart)
+          return
+     }
+
      return {
           cart,
           quantity,
           createCart,
           deleteCart,
-          upgradeCart
+          upgradeCart,
+          deleteItemCart
      }
 }
