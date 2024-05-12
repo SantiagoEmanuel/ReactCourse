@@ -1,29 +1,14 @@
-import { useState } from 'react';
 import { CartContext } from '../context/CartContext';
 import { CartToggleContext } from '../context/CartToggleContext';
+import { useCart } from '../hook/useCart';
 
 export function CartProvider({ children }) {
-     const [quantity, setQuantity] = useState(0);
-     const [cart, setCart] = useState(null);
-
+     const { cart, quantity, createCart, deleteCart } = useCart();
      const addCart = (userCart) => {
-          let newCart = cart || {}
-          userCart.map(({ id, COUNT }) => {
-               newCart[id] = COUNT
-          })
-          let values = Object.values(newCart)
-          setCart(newCart);
-          setQuantity(values.reduce(
-               (accumulator, currentValue) => accumulator + currentValue,
-               0,
-          ))
-          return
+          createCart(userCart)
      }
-
      const removeCart = () => {
-          setQuantity(0)
-          setCart(null)
-          return
+          deleteCart()
      }
 
      return (

@@ -2,30 +2,18 @@ import { useUserToggleContext } from '../hook/useUserToggleContext'
 
 export function RegisterView() {
 
-     const loginUser = useUserToggleContext()
+     const { createUser } = useUserToggleContext()
 
      const handleSubmit = (e) => {
           e.preventDefault();
-          fetch("https://e-commerce-db-65ce.onrender.com/user", {
-               method: "POST",
-               headers: {
-                    'Content-Type': 'application/json',
-               },
-               body: JSON.stringify({
-                    username: e.target.username.value.toLowerCase(),
-                    first_name: e.target.first_name.value,
-                    last_name: e.target.last_name.value,
-                    email: e.target.email.value,
-                    password: e.target.password.value
-               })
-          }).then(r => r.json()).then(({ ok }) => {
 
-               console.log(ok)
+          const username = e.target.username.value.toLowerCase()
+          const first_name = e.target.first_name.value
+          const last_name = e.target.last_name.value
+          const email = e.target.email.value
+          const password = e.target.password.value
 
-               if (ok) {
-                    loginUser(e.target.username.value, e.target.password.value);
-               }
-          })
+          createUser(username, first_name, last_name, email, password)
      }
 
      return (

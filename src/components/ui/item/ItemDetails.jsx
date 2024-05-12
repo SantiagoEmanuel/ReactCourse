@@ -17,6 +17,7 @@ export function ItemDetails({ id, imgUrl, title, price, description, stock }) {
                               {price}
                          </span>
                          <ItemCount stock={stock} productID={id} initial={cart ? cart[id] : 0} />
+                         <span>¡Quedan {cart ? stock - cart[id] : stock} disponibles!</span>
                     </section>
                     <section>
                          <p>{description}</p>

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 export function CartWidget() {
      const { quantity } = useCartContext();
-
      return (
           <Link to={'/cart'} className='relative cursor-pointer'>
                <CartIcon width={24} height={24} />
