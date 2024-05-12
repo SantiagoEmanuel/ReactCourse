@@ -24,7 +24,8 @@ export const useCart = () => {
           return
      }
 
-     const upgradeCart = (id, token) => {
+     const upgradeCart = (id, token, cart) => {
+          console.log(cart)
           fetch("https://e-commerce-db-65ce.onrender.com/cart", {
                method: "POST",
                headers: {
