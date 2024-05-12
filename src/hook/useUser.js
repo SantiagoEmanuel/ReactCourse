@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { logoutUser } from "../functions/logoutUser";
 import { createUser } from "../functions/createUser";
+import { useNavigate } from "react-router-dom";
 
 export const useUser = () => {
      const [user, setUser] = useState(null);
+     const navigate = useNavigate();
 
      const logUser = async (username, password, addCart) => {
           fetch(`https://e-commerce-db-65ce.onrender.com/user`, {
@@ -38,6 +40,9 @@ export const useUser = () => {
                               addCart(cart)
                          })
                     }
+               })
+               .finally(() => {
+                    navigate('/')
                })
      }
 
