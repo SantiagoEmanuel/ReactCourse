@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { logoutUser } from "../functions/logoutUser";
-import { createUser } from "../functions/createUser";
 import { useNavigate } from "react-router-dom";
 
 export const useUser = () => {
