@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useCartContext } from "../hook/useCartContext";
 import { useProducts } from '../hook/useProducts';
+import { useCartToggleContext } from "../hook/useCartToggleContext";
 
 export function CartView() {
      const { products } = useProducts();
      const { cart } = useCartContext();
-     const [newCart, setNewCart] = useState([])
+     const { removeItem } = useCartToggleContext();
+     const [newCart, setNewCart] = useState([]);
 
      useEffect(() => {
           const x = []
@@ -25,21 +27,23 @@ export function CartView() {
           <section className="flex flex-col gap-4">
                {
                     newCart?.map(({ id, imageUrl, title, count }) => (
-                         <article className="flex items-center justify-between overflow-hidden border rounded-md" key={id}>
-                              <img
-                                   src={imageUrl}
-                                   className="h-[200px] rounded-l-sm aspect-square"
-                              />
-                              <div className="flex justify-between flex-1 p-4">
-                                   <h4>{title}</h4>
-                                   <div className="flex items-center gap-4">
-                                        <p className="text-xl font-normal">{count}</p>
-                                        <button className="hover:bg-red-600 hover:text-white fond-bold px-4 py-1 text-red-600 transition-colors border border-red-600 rounded-md">
-                                             Delete
-                                        </button>
+                         count > 0 ?
+                              <article className="flex items-center justify-between overflow-hidden border rounded-md" key={id}>
+                                   <img
+                                        src={imageUrl}
+                                        className="h-[200px] rounded-l-sm aspect-square"
+                                   />
+                                   <div className="flex justify-between flex-1 p-4">
+                                        <h4>{title}</h4>
+                                        <div className="flex items-center gap-4">
+                                             <p className="text-xl font-normal">{count}</p>
+                                             <button className="hover:bg-red-600 hover:text-white fond-bold px-4 py-1 text-red-600 transition-colors border border-red-600 rounded-md" onClick={() => removeItem(id)}>
+                                                  Delete
+                                             </button>
+                                        </div>
                                    </div>
-                              </div>
-                         </article>
+                              </article>
+                              : ''
                     ))
                }
                {cart && newCart.length == 0 && <h2 className="text-xl font-bold text-center">Loading</h2>}
