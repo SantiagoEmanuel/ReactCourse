@@ -53,10 +53,23 @@ export const useUser = () => {
      }
 
      const createNewUser = async (username, first_name, last_name, email, password) => {
-          const result = await createUser(username, first_name, last_name, email, password);
-          if (result) {
-               logUser(username, password)
-          }
+          fetch("https://e-commerce-db-65ce.onrender.com/user", {
+               method: "POST",
+               headers: {
+                    'Content-Type': 'application/json',
+               },
+               body: JSON.stringify({
+                    username: username,
+                    first_name: first_name,
+                    last_name: last_name,
+                    email: email,
+                    password: password
+               })
+          }).then(r => r.json()).then(({ ok }) => {
+               if (ok) {
+                    logUser(username, password)
+               }
+          })
      }
 
      return {
