@@ -6,6 +6,7 @@ import { useUserToggleContext } from "../../hook/useUserToggleContext";
 import { useUserContext } from "../../hook/useUserContext";
 import { Link } from "react-router-dom";
 import { CartWidget } from "../ui/CartWidget";
+import { Analytics } from '@vercel/analytics/react';
 
 export function Layout({ children }) {
      const user = useUserContext();
@@ -14,7 +15,7 @@ export function Layout({ children }) {
      return (
           <>
                <NavBar />
-               <main className="flex-1">
+               <main className="flex flex-col items-center justify-center flex-1">
                     {children}
                </main>
                <footer>
@@ -32,6 +33,7 @@ export function Layout({ children }) {
                          <CartWidget />
                     </div>
                </aside>
+               <Analytics />
           </>
      )
 }
