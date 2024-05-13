@@ -24,7 +24,7 @@ export function CartView() {
      }, [cart]);
 
      return (
-          <section className="flex flex-col gap-4">
+          <section className="flex flex-col w-full gap-4">
                {
                     newCart?.map(({ id, imageUrl, title, count }) => (
                          count > 0 ?
