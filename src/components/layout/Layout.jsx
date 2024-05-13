@@ -14,11 +14,11 @@ export function Layout({ children }) {
      return (
           <>
                <NavBar />
-               <main>
+               <main className="flex-1">
                     {children}
                </main>
                <footer>
-                    <p className="text-sm text-center">Frontend and Backend created by <span className="text-xl font-bold text-orange-600">Santiago Emanuel</span></p>
+                    <p className="text-balance text-sm text-center">Frontend and Backend created by <span className="text-xl font-bold text-orange-600">Santiago Emanuel</span></p>
                     <p className="text-balance text-sm text-center">Using Back-end V2.</p>
                </footer>
                <aside id="aside-menu" className="absolute top-0 right-0 z-10  w-full h-full bg-[#212121] items-center justify-center max-2xl:hidden hidden">
