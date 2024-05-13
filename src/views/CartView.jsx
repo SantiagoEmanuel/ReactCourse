@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useCartContext } from "../hook/useCartContext";
-import { useProducts } from '../hook/useProducts';
 import { useCartToggleContext } from "../hook/useCartToggleContext";
+import { useProductContext } from "../hook/useProductContext";
 
 export function CartView() {
-     const { products } = useProducts();
+     const products = useProductContext();
      const { cart } = useCartContext();
      const { removeItem } = useCartToggleContext();
      const [newCart, setNewCart] = useState([]);
@@ -21,7 +21,7 @@ export function CartView() {
                })
           }
           setNewCart(x)
-     }, [products, cart]);
+     }, [cart]);
 
      return (
           <section className="flex flex-col gap-4">
