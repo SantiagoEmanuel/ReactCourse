@@ -46,7 +46,6 @@ export function CartView() {
                               : ''
                     ))
                }
-               {cart && newCart.length == 0 && <h2 className="text-xl font-bold text-center">Loading</h2>}
                {newCart.length == 0 && !cart && <h2 className="text-xl font-bold text-center">YOU DON'T HAVE NOTHING IN YOUR CART</h2>}
           </section>
      );

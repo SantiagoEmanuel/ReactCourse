@@ -36,7 +36,9 @@ export const useUser = () => {
                                    token: token,
                                    cart: cart
                               })
-                              addCart(cart)
+                              if (cart.length != 0) {
+                                   addCart(cart)
+                              }
                          })
                     }
                })
