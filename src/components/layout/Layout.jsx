@@ -2,8 +2,15 @@ import { closeAside } from "../../functions/closeAside";
 import { CategoriesList } from "./CategoriesList";
 import { CloseIcon } from "../ui/icons/CloseIcon";
 import { NavBar } from "./NavBar";
+import { useUserToggleContext } from "../../hook/useUserToggleContext";
+import { useUserContext } from "../../hook/useUserContext";
+import { Link } from "react-router-dom";
+import { CartWidget } from "../ui/CartWidget";
 
 export function Layout({ children }) {
+     const user = useUserContext();
+     const { loginUser } = useUserToggleContext();
+
      return (
           <>
                <NavBar />
@@ -18,7 +25,12 @@ export function Layout({ children }) {
                     <button onClick={closeAside} className="top-4 right-4 absolute">
                          <CloseIcon />
                     </button>
-                    <CategoriesList css="flex flex-col gap-4 justify-center items-center text-center text-2xl" />
+                    <div className="flex flex-col items-center justify-center gap-4 text-2xl text-center">
+                         <CategoriesList css="flex flex-col gap-4 justify-center items-center text-center text-2xl" />
+                         {user?.status == 'admin' ? <Link to={'/create-product'} className="hover:scale-110 transition-transform" onClick={closeAside}>Create Product</Link> : ''}
+                         {user == null ? <><Link to={'/login'} className="hover:scale-110 transition-transform" onClick={closeAside}>Login</Link><Link to={'/register'} className="hover:scale-110 transition-transform" onClick={closeAside}>Register</Link></> : <button className="hover:scale-110 transition-transform" onClick={() => { loginUser(); closeAside() }}>Log out</button>}
+                         <CartWidget />
+                    </div>
                </aside>
           </>
      )
