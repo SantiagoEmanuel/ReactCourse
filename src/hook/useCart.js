@@ -1,8 +1,8 @@
 import { useState } from "react"
 
 export const useCart = () => {
-     const [quantity, setQuantity] = useState(0)
-     const [cart, setCart] = useState(null)
+     const [quantity, setQuantity] = useState(localStorage.getItem('quantity') || 0)
+     const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || null)
 
      const createCart = (userCart) => {
           let newCart = cart || {}
@@ -10,6 +10,11 @@ export const useCart = () => {
                newCart[id] = COUNT
           })
           let values = Object.values(newCart)
+          localStorage.setItem('cart', JSON.stringify(newCart))
+          localStorage.setItem('quantity', values.reduce(
+               (accumulator, currentValue) => accumulator + currentValue,
+               0,
+          ))
           setCart(newCart);
           setQuantity(values.reduce(
                (accumulator, currentValue) => accumulator + currentValue,
@@ -46,6 +51,7 @@ export const useCart = () => {
      const deleteItemCart = (id) => {
           const arrayCart = Object.entries(cart)
           if (arrayCart.length == 1) {
+               localStorage.clear()
                setCart(null)
                setQuantity(0)
                return
@@ -56,6 +62,8 @@ export const useCart = () => {
                     newCart[key] = value
                }
           })
+          localStorage.setItem('cart', JSON.stringify(newCart))
+          localStorage.setItem('quantity', quantity - cart[id])
           setQuantity(quantity - cart[id])
           setCart(newCart)
           return
