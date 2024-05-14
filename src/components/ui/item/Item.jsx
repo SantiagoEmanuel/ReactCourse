@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export function Item({ id, img, title, price }) {
      return (
-          <article className="rounded-xl flex flex-col justify-between gap-4 text-black bg-white">
+          <article className="rounded-xl transition-transform hover:scale-[1.03] card flex flex-col justify-between gap-4 text-black bg-white max-sm:hover:scale-100 max-sm:transition-none">
                <header className="">
                     <img src={img} alt={title} className="aspect-square rounded-lg" />
                </header>
