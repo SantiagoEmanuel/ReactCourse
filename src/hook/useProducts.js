@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { getItems } from '../functions/getItems'
 
-export const useProducts = (category = null) => {
+export const useProducts = () => {
      const [products, setProducts] = useState([]);
 
      useEffect(() => {
           async function getData() {
-               setProducts(await getItems(category))
+               setProducts(await getItems())
           }
-          getData(category)
-     }, [category])
+          getData()
+     }, [])
 
      return {
           products
