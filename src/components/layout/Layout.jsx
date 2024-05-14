@@ -1,12 +1,12 @@
-import { closeAside } from "../../functions/closeAside";
-import { CategoriesList } from "./CategoriesList";
-import { CloseIcon } from "../ui/icons/CloseIcon";
-import { NavBar } from "./NavBar";
+import { Analytics } from '@vercel/analytics/react';
+import { Link } from "react-router-dom";
 import { useUserToggleContext } from "../../hook/useUserToggleContext";
 import { useUserContext } from "../../hook/useUserContext";
-import { Link } from "react-router-dom";
+import { closeAside } from "../../functions/closeAside";
+import { CloseIcon } from "../ui/icons/CloseIcon";
 import { CartWidget } from "../ui/CartWidget";
-import { Analytics } from '@vercel/analytics/react';
+import { NavBar } from "./NavBar";
+import { CategoriesList } from "./CategoriesList";
 
 export function Layout({ children }) {
      const user = useUserContext();

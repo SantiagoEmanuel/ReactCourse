@@ -1,11 +1,11 @@
-import { Brand } from "./Brand"
+import { Link } from "react-router-dom";
+import { useUserToggleContext } from '../../hook/useUserToggleContext'
+import { useUserContext } from "../../hook/useUserContext"
+import { showMenu } from "../../functions/openAside"
 import { CategoriesList } from "./CategoriesList"
 import { CartWidget } from "../ui/CartWidget"
-import { useUserContext } from "../../hook/useUserContext"
-import { useUserToggleContext } from '../../hook/useUserToggleContext'
-import { Link } from "react-router-dom";
 import { MenuIcon } from "../ui/icons/MenuIcon"
-import { showMenu } from "../../functions/openAside"
+import { Brand } from "./Brand"
 
 export function NavBar() {
      const user = useUserContext();

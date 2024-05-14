@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { ItemList } from '../components/containers/ItemList'
 import { useProductContext } from '../hook/useProductContext'
+import { ItemList } from '../components/containers/ItemList'
 
 export function ItemListContainer() {
      const { category } = useParams();

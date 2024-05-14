@@ -1,7 +1,7 @@
-import { CartIcon } from './icons/CartIcon';
-import { useCartContext } from '../../hook/useCartContext'
 import { Link } from 'react-router-dom';
+import { useCartContext } from '../../hook/useCartContext'
 import { closeAside } from '../../functions/closeAside';
+import { CartIcon } from './icons/CartIcon';
 
 export function CartWidget() {
      const { quantity } = useCartContext();

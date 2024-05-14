@@ -4,10 +4,10 @@ import { ItemListContainer } from './views/ItemListContainer'
 import { ItemDetailsContainer } from './views/ItemDetailsContainer'
 import { ErrorView } from './views/ErrorView'
 import { LoginView } from './views/LoginView'
-import { App } from './App'
 import { CreateProductView } from './views/CreateProductView'
 import { RegisterView } from './views/RegisterView'
 import { CartView } from './views/CartView'
+import { App } from './App'
 import './css/index.css'
 
 const router = createBrowserRouter([

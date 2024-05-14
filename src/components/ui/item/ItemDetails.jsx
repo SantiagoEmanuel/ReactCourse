@@ -1,5 +1,5 @@
-import { ItemCount } from './ItemCount'
 import { useCartContext } from '../../../hook/useCartContext';
+import { ItemCount } from './ItemCount'
 
 export function ItemDetails({ id, imgUrl, title, price, description, stock }) {
 
