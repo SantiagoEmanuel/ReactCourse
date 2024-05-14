@@ -6,9 +6,4 @@ export const showMenu = () => {
           mobileMenu.classList.add('max-md:flex');
           mobileMenu.classList.add('showAside');
      }
-     // mobileMenu.classList.remove('showAside');
-     // mobileMenu.classList.remove('flex');
-     // mobileMenu.classList.add('hiddenAside');
-     //  else {
-     // }
 }
