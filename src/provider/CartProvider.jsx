@@ -3,21 +3,11 @@ import { CartToggleContext } from '../context/CartToggleContext';
 import { useCart } from '../hook/useCart';
 
 export function CartProvider({ children }) {
-     const { cart, quantity, createCart, deleteCart, deleteItemCart } = useCart();
-     const addCart = (userCart) => {
-          createCart(userCart)
-     }
-     const removeCart = () => {
-          deleteCart()
-     }
-
-     const removeItem = (id) => {
-          deleteItemCart(id)
-     }
+     const { cart, quantity, addCart, deleteCart, deleteItemCart } = useCart();
 
      return (
           <CartContext.Provider value={{ quantity, cart }}>
-               <CartToggleContext.Provider value={{ addCart, removeCart, removeItem }}>
+               <CartToggleContext.Provider value={{ addCart, deleteCart, deleteItemCart }}>
                     {children}
                </CartToggleContext.Provider>
           </CartContext.Provider>
