@@ -8,6 +8,7 @@ export function ItemDetailsContainer() {
      const { id } = useParams()
      const products = useProductContext()
      const product = getItem(id, products)
+
      return (
           <section>
                <Link to={'/'} className='flex items-center gap-2 text-xl font-bold'>
