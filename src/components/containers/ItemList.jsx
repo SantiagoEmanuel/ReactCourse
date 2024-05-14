@@ -2,7 +2,7 @@ import { Item } from "../ui/item/Item";
 
 export function ItemList({ items, filter = null }) {
      return (
-          <section className="max-sm:grid-cols-2 max-[424px]:grid-cols-1 grid grid-cols-3 gap-4">
+          <section className="max-md:grid-cols-2 grid grid-cols-3 gap-4">
                {
                     filter ?
                          items.map(({ id, title, imageUrl, price, stock, category }) => (
