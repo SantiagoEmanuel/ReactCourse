@@ -4,22 +4,22 @@ export const useCart = () => {
      const [quantity, setQuantity] = useState(localStorage.getItem('quantity') || 0)
      const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || null)
 
-     const createCart = (userCart) => {
+     const addCart = (userCart) => {
           let newCart = cart || {}
           userCart?.map(({ id, COUNT }) => {
                newCart[id] = COUNT
           })
           let values = Object.values(newCart)
-          localStorage.setItem('cart', JSON.stringify(newCart))
           localStorage.setItem('quantity', values.reduce(
                (accumulator, currentValue) => accumulator + currentValue,
                0,
           ))
-          setCart(newCart);
+          localStorage.setItem('cart', JSON.stringify(newCart))
           setQuantity(values.reduce(
                (accumulator, currentValue) => accumulator + currentValue,
                0,
           ))
+          setCart(newCart);
           return
      }
 
@@ -52,8 +52,8 @@ export const useCart = () => {
           const arrayCart = Object.entries(cart)
           if (arrayCart.length == 1) {
                localStorage.clear()
-               setCart(null)
                setQuantity(0)
+               setCart(null)
                return
           }
           const newCart = {}
@@ -72,7 +72,7 @@ export const useCart = () => {
      return {
           cart,
           quantity,
-          createCart,
+          addCart,
           deleteCart,
           upgradeCart,
           deleteItemCart
