@@ -47,9 +47,9 @@ export const useUser = () => {
                })
      }
 
-     const closeUser = (cart, saveCart, removeCart) => {
+     const closeUser = (cart, saveCart, deleteCart) => {
           saveCart(user.id, user.token, cart)
-          removeCart();
+          deleteCart();
           setUser(logoutUser())
      }
 
