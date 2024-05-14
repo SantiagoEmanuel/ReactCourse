@@ -9,7 +9,7 @@ export function UserProvider({ children }) {
 
      const { user, logUser, closeUser, createNewUser } = useUser()
      const { upgradeCart } = useCart();
-     const { addCart, removeCart } = useCartToggleContext();
+     const { addCart, deleteCart } = useCartToggleContext();
      const { cart } = useCartContext();
 
      const loginUser = (username, password) => {
@@ -17,22 +17,14 @@ export function UserProvider({ children }) {
                logUser(username, password, addCart)
                return
           } else {
-               closeUser(cart, saveCart, removeCart)
+               closeUser(cart, upgradeCart, deleteCart)
                return
           }
      }
 
-     const createUser = (username, first_name, last_name, email, password) => {
-          createNewUser(username, first_name, last_name, email, password)
-     }
-
-     const saveCart = (id, token, cart) => {
-          upgradeCart(id, token, cart)
-     }
-
      return (
           <UserContext.Provider value={user}>
-               <UserToggleContext.Provider value={{ loginUser, saveCart, createUser }}>
+               <UserToggleContext.Provider value={{ loginUser, upgradeCart, createNewUser }}>
                     {children}
                </UserToggleContext.Provider>
           </UserContext.Provider>
