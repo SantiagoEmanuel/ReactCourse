@@ -7,5 +7,5 @@
 - [x] Create repository on GitHub.
 - [x] Deploy the project to Vercel and install @Vercel/analytics.
 - [x] Create folders for components, views, context, CSS, functions, providers, routes and assets.
-- [] Create project documentation.
-- [] Document all project code.
+- [ ] Create project documentation.
+- [ ] Document all project code.
