@@ -1,3 +1,12 @@
+import { signOut } from "firebase/auth";
+import { auth } from "../api/firebaseConnection";
+
 export const logoutUser = () => {
-     return null;
-}
+  signOut(auth)
+    .then(() => {
+      return null;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
