@@ -1,17 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@tailwind variants;
 
 @font-face {
-  font-family: 'Cascadia Code PL';
-  src: url('../assets/fonts/CASCADIACODEPL-REGULAR.TTF');
+  font-family: "Cascadia Code PL";
+  src: url("../assets/fonts/CASCADIACODEPL-REGULAR.TTF");
 }
 
 @keyframes animation-show {
   0% {
     width: 0;
-  }100%{
+  }
+  100% {
     width: full;
   }
 }
@@ -19,7 +19,8 @@
 @keyframes animation-hidden {
   0% {
     width: full;
-  } 100% {
+  }
+  100% {
     width: 0;
     display: none;
   }
@@ -27,19 +28,19 @@
 
 :root {
   color-scheme: light dark;
-  font-family: 'Cascadia Code PL';
+  font-family: "Cascadia Code PL";
   user-select: none;
 }
 
 .showAside {
   animation-name: animation-show;
-  animation-duration: .2s;
+  animation-duration: 0.2s;
   animation-fill-mode: forwards;
   animation-direction: normal;
 }
 .hiddenAside {
   animation-name: animation-hidden;
-  animation-duration: .2s;
+  animation-duration: 0.2s;
   animation-fill-mode: forwards;
   animation-direction: normal;
 }
