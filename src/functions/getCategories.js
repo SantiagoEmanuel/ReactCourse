@@ -1,13 +1,15 @@
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../api/firebaseConnection";
+
 export async function getCategories() {
-     const newData = []
-     const data = await fetch('https://e-commerce-db-65ce.onrender.com/categories').then(r => r.json());
-
-     data.map(({ category }) => {
-          newData.push({
-               name: category,
-               url: `category/${category}`
-          })
-     })
-
-     return newData;
+  try {
+    const querySnapshot = await getDocs(collection(db, "categories"));
+    const products = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    return products;
+  } catch (err) {
+    console.error("Error getting categories:", err);
+  }
 }
