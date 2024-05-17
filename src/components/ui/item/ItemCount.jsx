@@ -27,7 +27,7 @@ export function ItemCount({ stock, initial, productID = null }) {
       <button
         disabled={count < 1}
         className="rounded-sm py-4 text-xl font-bold transition-colors hover:bg-[#333333] hover:text-white disabled:text-[#808080] disabled:hover:bg-[#212121] disabled:hover:text-[#ccc]"
-        onClick={() => addCart([{ id: productID, COUNT: count }])}
+        onClick={() => addCart([{ id:productID, count: count }])}
       >
         Add to cart
       </button>
