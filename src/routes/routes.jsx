@@ -2,7 +2,6 @@ import { ItemListContainer } from "../views/ItemListContainer";
 import { ItemDetailsContainer } from "../views/ItemDetailsContainer";
 import { ErrorView } from "../views/ErrorView";
 import { LoginView } from "../views/LoginView";
-import { CreateProductView } from "../views/CreateProductView";
 import { RegisterView } from "../views/RegisterView";
 import { CartView } from "../views/CartView";
 import { App } from "../App";
@@ -35,10 +34,6 @@ export const routes = [
       {
         path: "/register",
         element: <RegisterView />,
-      },
-      {
-        path: "/create-product",
-        element: <CreateProductView />,
       },
     ],
     errorElement: <ErrorView />,
