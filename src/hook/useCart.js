@@ -1,68 +1,53 @@
 import { useState } from "react";
+import { updateCart as x } from "../functions/updateCart";
+import { toastNotification } from "../functions/toastNotification";
 
 export const useCart = () => {
   const [quantity, setQuantity] = useState(
-    localStorage.getItem("quantity") || 0
+    localStorage.getItem("quantity") || 0,
   );
   const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart")) || null
+    JSON.parse(localStorage.getItem("cart")) || null,
   );
 
   const addCart = (userCart) => {
-    let newCart = cart || {};
-    userCart?.map(({ id, COUNT }) => {
-      newCart[id] = COUNT;
-    });
-    let values = Object.values(newCart);
-    localStorage.setItem(
-      "quantity",
-      values.reduce(
+    if (userCart.length > 0) {
+      let newCart = cart || {};
+      userCart.map(({ id, count }) => {
+        newCart[id] = count;
+      });
+      let values = Object.values(newCart);
+      values = values.reduce(
         (accumulator, currentValue) => accumulator + currentValue,
-        0
-      )
-    );
-    localStorage.setItem("cart", JSON.stringify(newCart));
-    setQuantity(
-      values.reduce(
-        (accumulator, currentValue) => accumulator + currentValue,
-        0
-      )
-    );
-    setCart(newCart);
+        0,
+      );
+      localStorage.setItem("quantity", values);
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      setQuantity(values);
+      setCart(newCart);
+      toastNotification("¡Producto agregado!");
+    }
     return;
   };
 
-  const upgradeCart = (id, token, cart) => {
-    fetch("https://e-commerce-db-65ce.onrender.com/cart", {
-      method: "POST",
-      headers: {
-        Authorization: token,
-        "Access-Control-Allow-Origin": origin,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        id_user: id,
-        cart: cart,
-      }),
-    })
-      .then((r) => r.json())
-      .then((data) => {
-        return data.cart;
-      });
-  };
-
   const deleteCart = () => {
+    localStorage.clear();
     setQuantity(0);
     setCart(null);
     return;
   };
 
+  const updateCart = (id) => {
+    if (cart != null) {
+      x(id, cart);
+      toastNotification("Carrito Guardado");
+    }
+  };
+
   const deleteItemCart = (id) => {
     const arrayCart = Object.entries(cart);
     if (arrayCart.length == 1) {
-      localStorage.clear();
-      setQuantity(0);
-      setCart(null);
+      deleteCart();
       return;
     }
     const newCart = {};
@@ -75,15 +60,16 @@ export const useCart = () => {
     localStorage.setItem("quantity", quantity - cart[id]);
     setQuantity(quantity - cart[id]);
     setCart(newCart);
+    toastNotification("Producto eliminado del carrito");
     return;
   };
 
   return {
     cart,
     quantity,
+    updateCart,
     addCart,
     deleteCart,
-    upgradeCart,
     deleteItemCart,
   };
 };
