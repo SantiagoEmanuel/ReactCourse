@@ -41,6 +41,7 @@ export const useCart = () => {
     if (cart != null) {
       x(id, cart);
       toastSuccessNotification("Carrito Guardado");
+      deleteCart();
     }
   };
 
