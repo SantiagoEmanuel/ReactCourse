@@ -5,6 +5,7 @@ import { LoginView } from "../views/LoginView";
 import { RegisterView } from "../views/RegisterView";
 import { CartView } from "../views/CartView";
 import { App } from "../App";
+import { UserView } from "../views/UserView";
 
 export const routes = [
   {
@@ -34,6 +35,10 @@ export const routes = [
       {
         path: "/register",
         element: <RegisterView />,
+      },
+      {
+        path: "/user",
+        element: <UserView />,
       },
     ],
     errorElement: <ErrorView />,
