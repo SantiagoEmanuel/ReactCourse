@@ -8,11 +8,18 @@ export const loginUser = async (email, password) => {
     email,
     password,
   );
+  const queryUserInfo = await getDoc(
+    doc(db, "userInfo", userCredentials.user.uid),
+  );
+  const userInfo = {
+    ...queryUserInfo.data(),
+  };
+
   const querySnapshot = await getDoc(doc(db, "cart", userCredentials.user.uid));
   const cart = [
     {
       ...querySnapshot.data(),
     },
   ];
-  return { ...userCredentials.user, cart: cart };
+  return { ...userCredentials.user, ...userInfo, cart: cart };
 };
