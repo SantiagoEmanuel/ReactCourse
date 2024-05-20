@@ -5,7 +5,6 @@ import { useEffect } from "react";
 
 export function UserView() {
   const user = useUserContext();
-
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -15,7 +14,9 @@ export function UserView() {
         for (const anotherKey in user.orders[key]) {
           data.push({
             order: anotherKey,
-            products: user.orders[key][anotherKey],
+            products: Array.isArray(user.orders[key][anotherKey])
+              ? [...user.orders[key][anotherKey].flat()]
+              : [user.orders[key][anotherKey]],
           });
         }
       }
@@ -37,7 +38,7 @@ export function UserView() {
   }
 
   return (
-    <section className="flex w-full flex-col gap-20 rounded-xl border p-8">
+    <section className="flex w-full flex-col gap-10 rounded-xl border p-8">
       <header className="m-auto max-w-[600px] ">
         <div className="content-center">
           {user.avatar ? (
@@ -45,18 +46,18 @@ export function UserView() {
               src={user.avatar}
               alt={`${user.first_name} ${user.last_name} avatar`}
               title={`${user.first_name} ${user.last_name} avatar`}
-              className="m-auto h-auto w-[100px] rounded-full"
+              className="m-auto h-auto w-[200px] rounded-full"
             />
           ) : (
             <img
               src="/user-no-avatar.png"
               alt="User avatar is not available"
-              className="m-auto w-[100px] rounded-full"
+              className="m-auto w-[200px] rounded-full"
             />
           )}
         </div>
-        <div className="flex flex-col gap-8">
-          <h2 className=" text-center font-normal">
+        <div className="flex flex-col gap-4 pt-4">
+          <h2 className=" text-center text-2xl font-normal">
             {user.first_name} {user.last_name}
           </h2>
           <div className="flex flex-col items-center justify-center">
@@ -81,7 +82,7 @@ export function UserView() {
                     <h4 className="text-center text-2xl">Order: {order}</h4>
                   </header>
                   <section className=" flex items-center justify-center gap-8">
-                    {products.map(({ id, imageUrl, title, price, count }) => (
+                    {products?.map(({ id, imageUrl, title, price, count }) => (
                       <article
                         key={id}
                         className="flex w-[200px] flex-col items-center"
