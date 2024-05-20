@@ -55,6 +55,7 @@ export const useUser = () => {
     const id = await generateOrder(order, user);
     deleteCart();
     const newOrder = {};
+
     newOrder[id] = [...order.products];
     const newUserInfo = {
       ...user,
@@ -63,9 +64,7 @@ export const useUser = () => {
       last_name: user.last_name,
       avatar: user.avatar,
       orders:
-        user.orders != null
-          ? [newOrder, Array.isArray(user.orders) && user.orders.flat().flat()]
-          : [newOrder],
+        user.orders != null ? [newOrder, ...user.orders.flat()] : [newOrder],
     };
     setUser(newUserInfo);
   };
