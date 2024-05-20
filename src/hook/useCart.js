@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { updateCart as x } from "../functions/updateCart";
-import { toastNotification } from "../functions/toastNotification";
+import { toastSuccessNotification } from "../functions/toastNotification";
 
 export const useCart = () => {
   const [quantity, setQuantity] = useState(
@@ -25,7 +25,7 @@ export const useCart = () => {
       localStorage.setItem("cart", JSON.stringify(newCart));
       setQuantity(values);
       setCart(newCart);
-      toastNotification("¡Producto agregado!");
+      toastSuccessNotification("¡Producto agregado!");
     }
     return;
   };
@@ -40,7 +40,7 @@ export const useCart = () => {
   const updateCart = (id) => {
     if (cart != null) {
       x(id, cart);
-      toastNotification("Carrito Guardado");
+      toastSuccessNotification("Carrito Guardado");
     }
   };
 
@@ -60,7 +60,7 @@ export const useCart = () => {
     localStorage.setItem("quantity", quantity - cart[id]);
     setQuantity(quantity - cart[id]);
     setCart(newCart);
-    toastNotification("Producto eliminado del carrito");
+    toastSuccessNotification("Producto eliminado del carrito");
     return;
   };
 
