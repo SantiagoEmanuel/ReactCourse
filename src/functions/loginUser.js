@@ -14,7 +14,6 @@ export const loginUser = async (email, password) => {
   const userInfo = {
     ...queryUserInfo.data(),
   };
-
   const querySnapshot = await getDoc(doc(db, "cart", userCredentials.user.uid));
   const cart = [
     {
