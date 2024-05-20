@@ -6,6 +6,8 @@ export const createUser = async (email, password, info) => {
   const result = await createUserWithEmailAndPassword(auth, email, password);
 
   setDoc(doc(db, "userInfo", result.user.uid), info);
-
-  return result.user;
+  const user = [];
+  user.push(result.user);
+  user.push(info);
+  return user;
 };
