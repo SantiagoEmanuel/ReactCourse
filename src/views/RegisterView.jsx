@@ -5,7 +5,18 @@ export function RegisterView() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    createNewUser(e.target.email.value.toLowerCase(), e.target.password.value);
+    const info = {
+      username: e.target.username.value,
+      first_name: e.target.first_name.value,
+      last_name: e.target.last_name.value,
+      avatar: e.target.avatarUrl.value,
+    };
+
+    createNewUser(
+      e.target.email.value.toLowerCase(),
+      e.target.password.value,
+      info,
+    );
   };
 
   return (
@@ -38,6 +49,46 @@ export function RegisterView() {
             required
           />
         </label>
+        <div className="flex gap-4 max-[500px]:flex-col">
+          <label className="flex w-full flex-col gap-1">
+            Username
+            <input
+              className="w-full rounded-sm border p-2 outline-none"
+              type="text"
+              name="username"
+              placeholder="Patrocleo"
+            />
+          </label>
+          <label className="flex w-full flex-col gap-1">
+            Avatar Url
+            <input
+              className="w-full rounded-sm border p-2 outline-none"
+              type="text"
+              name="avatarUrl"
+              placeholder="Patrocleo"
+            />
+          </label>
+        </div>
+        <div className="flex gap-4 max-[500px]:flex-col">
+          <label className="flex w-full flex-col gap-1">
+            First Name
+            <input
+              className="w-full rounded-sm border p-2 outline-none"
+              type="text"
+              name="first_name"
+              placeholder="Patrocleo"
+            />
+          </label>
+          <label className="flex w-full flex-col gap-1">
+            Last Name
+            <input
+              className="w-full rounded-sm border p-2 outline-none"
+              type="text"
+              name="last_name"
+              placeholder="Bimbo"
+            />
+          </label>
+        </div>
         <button className="rounded-xl border-2 py-2 text-xl transition-colors hover:bg-gray-300 hover:text-black">
           Create user
         </button>
