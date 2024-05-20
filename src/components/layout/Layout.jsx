@@ -14,8 +14,16 @@ export function Layout({ children }) {
       </main>
       <Footer />
       <MobileMenu />
+      <ToastContainer
+        limit={6}
+        position="bottom-right"
+        theme="dark"
+        draggableDirection="x"
+        closeOnClick={true}
+        pauseOnHover={false}
+        autoClose={1500}
+      />
       <Analytics />
-      <ToastContainer />
     </>
   );
 }
