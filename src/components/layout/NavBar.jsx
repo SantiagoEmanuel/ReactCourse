@@ -13,7 +13,7 @@ export function NavBar() {
 
   return (
     <header className="flex items-center justify-between">
-      <Brand>E-Commerce {user && <p>Welcome {user.email}!</p>} </Brand>
+      <Brand>E-Commerce {user && <p>Welcome {user.first_name}!</p>} </Brand>
       <nav className="flex items-center justify-around gap-6">
         <div className="flex items-center justify-around gap-6 max-md:hidden">
           <CategoriesList />
@@ -34,12 +34,20 @@ export function NavBar() {
               </Link>
             </>
           ) : (
-            <button
-              className="font-bold transition-transform hover:scale-110"
-              onClick={logout}
-            >
-              Log out
-            </button>
+            <>
+              <Link
+                to={"/user"}
+                className="font-bold transition-transform hover:scale-110"
+              >
+                Profile
+              </Link>
+              <button
+                className="font-bold transition-transform hover:scale-110"
+                onClick={logout}
+              >
+                Log out
+              </button>
+            </>
           )}
         </div>
         <div className="hidden content-center items-center max-md:flex">
