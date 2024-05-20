@@ -7,7 +7,10 @@ import { createUser } from "../functions/createUser";
 import { useCartToggleContext } from "../hook/useCartToggleContext";
 import { createCart } from "../functions/createCart";
 import { generateOrder } from "../functions/generateOrder";
-import { toastNotification } from "../functions/toastNotification";
+import {
+  toastErrorNotification,
+  toastSuccessNotification,
+} from "../functions/toastNotification";
 
 export const useUser = () => {
   const [user, setUser] = useState(null);
@@ -29,29 +32,42 @@ export const useUser = () => {
     navigate(redirects.toHome);
   };
 
-  const createNewUser = async (email, password) => {
-    const us = await createUser(email, password);
+  const createNewUser = async (email, password, info) => {
+    const us = await createUser(email, password, info);
     createCart(us.uid);
     setUser(us);
     navigate(redirects.toHome);
   };
 
-  const comprarCarrito = (cart, total) => {
+  const comprarCarrito = async (cart, total) => {
     if (user == null) {
-      toastNotification(
+      toastErrorNotification(
         "Error, necesitas iniciar sesion para realizar una compra.",
       );
       return;
     }
 
     const order = {
-      buyer: user?.email,
-      cart: cart,
+      products: cart,
       total: total,
     };
-    toastNotification("¡Carrito Comprado!");
-    generateOrder(order);
+    toastSuccessNotification("¡Carrito Comprado!");
+    const id = await generateOrder(order, user);
     deleteCart();
+    const newOrder = {};
+    newOrder[id] = [...order.products];
+    const newUserInfo = {
+      ...user,
+      username: user.username,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      avatar: user.avatar,
+      orders:
+        user.orders != null
+          ? [newOrder, Array.isArray(user.orders) && user.orders.flat().flat()]
+          : [newOrder],
+    };
+    setUser(newUserInfo);
   };
 
   return {
