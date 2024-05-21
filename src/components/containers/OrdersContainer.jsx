@@ -52,7 +52,7 @@ export function OrdersContainer({ orders }) {
 
   return (
     <section className="m-auto max-w-[500px]">
-      <h2 className="text-xl">Your orders</h2>
+      <h2 className="text-xl">My orders</h2>
       {orders.map(({ order, products }, index) => (
         <Accordion
           expanded={expanded === `panel${index}`}
