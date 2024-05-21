@@ -16,12 +16,12 @@ export function Layout({ children }) {
       <BottomNavigation />
       <ToastContainer
         limit={6}
-        position="bottom-right"
+        position="top-right"
         theme="dark"
         draggableDirection="x"
         closeOnClick={true}
         pauseOnHover={false}
-        autoClose={1500}
+        autoClose={1900}
       />
       <Analytics />
     </>
