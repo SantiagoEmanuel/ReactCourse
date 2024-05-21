@@ -10,7 +10,7 @@ export function NavBar() {
   return (
     <header className="flex items-center justify-between p-4">
       <Brand>
-        E-Commerce {user && <p className="text-sm">Welcome {user.username}!</p>}{" "}
+        E-Commerce {user && <p className="text-sm">Welcome {user.username}!</p>}
       </Brand>
       <nav className="flex items-center justify-around gap-6">
         <div className="flex items-center justify-around gap-6 max-md:hidden">
