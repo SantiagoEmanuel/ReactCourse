@@ -23,6 +23,7 @@ export const useUser = () => {
     if (us.cart[0].cart.length > 0) {
       addCart(us.cart[0].cart);
     }
+    toastSuccessNotification("Login success!");
     navigate(redirects.toHome);
   };
 
@@ -34,6 +35,7 @@ export const useUser = () => {
 
   const createNewUser = async (email, password, info) => {
     const us = await createUser(email, password, info);
+    toastSuccessNotification("User created!");
     createCart(us.uid);
     setUser(us);
     navigate(redirects.toHome);
