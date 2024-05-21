@@ -1,17 +1,17 @@
-import { object, string } from "zod";
+import z from "zod";
 
-const createUserSchema = object({
-  username: string().min(3),
-  first_name: string().min(3),
-  last_name: string().min(3),
-  avatar: string().url().optional(true),
-  email: string().email(),
-  password: string().min(8).max(64),
+const createUserSchema = z.object({
+  username: z.string().min(3),
+  first_name: z.string().min(3),
+  last_name: z.string().min(3),
+  avatar: z.string(),
+  email: z.string().email(),
+  password: z.string().min(8).max(64),
 });
 
-const loginUserSchema = object({
-  email: string().email(),
-  password: string().min(8).max(64),
+const loginUserSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(8).max(64),
 });
 
 export function creationValidateUser({ input }) {

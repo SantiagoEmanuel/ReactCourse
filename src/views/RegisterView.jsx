@@ -28,18 +28,15 @@ export function RegisterView() {
     const result = creationValidateUser({ input: input });
 
     if (result.success) {
-      const info = {
-        username: e.target.username.value,
-        first_name: e.target.first_name.value,
-        last_name: e.target.last_name.value,
-        avatar: e.target.avatar.value,
-      };
+      const { email, password, username, first_name, last_name, avatar } =
+        result.data;
 
-      createNewUser(
-        e.target.email.value.toLowerCase(),
-        e.target.password.value,
-        info,
-      );
+      createNewUser(email, password, {
+        username,
+        first_name,
+        last_name,
+        avatar,
+      });
       return;
     }
 

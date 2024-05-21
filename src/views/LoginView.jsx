@@ -20,7 +20,8 @@ export function LoginView() {
     const result = loginValidateUser({ input: input });
 
     if (result.success) {
-      login(e.target.email.value.toLowerCase(), e.target.password.value);
+      const { email, password } = result.data;
+      login(email, password);
       return;
     }
 
