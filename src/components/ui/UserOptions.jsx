@@ -1,12 +1,13 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useUserToggleContext } from "../../hook/useUserToggleContext";
+import { useUserContext } from "../../hook/useUserContext";
+import { ShowAvatar } from "./ShowAvatar";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { ShowAvatar } from "./ShowAvatar";
-import { useUserToggleContext } from "../../hook/useUserToggleContext";
-import { Link } from "react-router-dom";
 
-export function UserOptions({ user = null }) {
+export function UserOptions() {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -16,6 +17,7 @@ export function UserOptions({ user = null }) {
     setAnchorEl(null);
   };
   const { logout } = useUserToggleContext();
+  const user = useUserContext();
 
   if (!user) {
     return (
@@ -62,7 +64,7 @@ export function UserOptions({ user = null }) {
           }}
         >
           <span className="font-bold">Logout</span>
-        </MenuItem>{" "}
+        </MenuItem>
       </Menu>
     </div>
   );
