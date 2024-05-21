@@ -31,7 +31,6 @@ export function UserOptions() {
   return (
     <div>
       <Button
-        id="basic-button"
         aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
@@ -44,7 +43,6 @@ export function UserOptions() {
         />
       </Button>
       <Menu
-        id="basic-menu"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
