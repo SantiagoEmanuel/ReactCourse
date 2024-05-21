@@ -1,9 +1,4 @@
-export function itemFilter({
-  items,
-  categoryFilter,
-  priceFilter,
-  searchFilter,
-}) {
+export function itemFilter({ items, categoryFilter, searchFilter }) {
   return items.filter((product) => {
     const passCategoryFilter =
       categoryFilter == null
@@ -14,8 +9,6 @@ export function itemFilter({
         ? product.title == product.title
         : product.title.toLowerCase().includes(searchFilter.toLowerCase());
 
-    const passPriceFilter = product.price >= priceFilter;
-
-    return passCategoryFilter && passPriceFilter && passSearchFilter;
+    return passCategoryFilter && passSearchFilter;
   });
 }
