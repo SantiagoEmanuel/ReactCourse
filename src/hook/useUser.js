@@ -23,7 +23,7 @@ export const useUser = () => {
     if (us.cart[0].cart.length > 0) {
       addCart(us.cart[0].cart);
     }
-    toastSuccessNotification("Login success!");
+    toastSuccessNotification("¡Has iniciado sesión!");
     navigate(redirects.toHome);
   };
 
@@ -35,7 +35,7 @@ export const useUser = () => {
 
   const createNewUser = async (email, password, info) => {
     const us = await createUser(email, password, info);
-    toastSuccessNotification("User created!");
+    toastSuccessNotification("¡Usuario creado!");
     createCart(us.uid);
     setUser(us);
     navigate(redirects.toHome);
@@ -53,7 +53,7 @@ export const useUser = () => {
       products: cart,
       total: total,
     };
-    toastSuccessNotification("¡Carrito Comprado!");
+    toastSuccessNotification("¡Orden generada!");
     const id = await generateOrder(order, user);
     deleteCart();
     const newOrder = {};
@@ -69,6 +69,8 @@ export const useUser = () => {
         user.orders != null ? [newOrder, ...user.orders.flat()] : [newOrder],
     };
     setUser(newUserInfo);
+    navigate(redirects.toHome);
+    return;
   };
 
   return {
