@@ -9,6 +9,12 @@ export function LoginView() {
     password: "",
   });
 
+  const handleChange = (e) => {
+    if (e.target.classList.contains("border-red-500")) {
+      e.target.classList.remove("border-red-500");
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -55,6 +61,7 @@ export function LoginView() {
             className="border px-4 py-2"
             placeholder="Patrocleo@protrocleo.com"
             autoComplete="email"
+            onChange={handleChange}
           />
           <span className=" max-sm:text-sm">
             {inputErrorMessage.email != "" && inputErrorMessage.email}
@@ -69,6 +76,7 @@ export function LoginView() {
             className="border px-4 py-2"
             placeholder="*********"
             autoComplete="current-password"
+            onChange={handleChange}
           />
           <span className=" max-sm:text-sm">
             {inputErrorMessage.password != "" && inputErrorMessage.password}

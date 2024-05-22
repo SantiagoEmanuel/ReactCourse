@@ -12,6 +12,11 @@ export function RegisterView() {
     first_name: "",
     last_name: "",
   });
+  const handleChange = (e) => {
+    if (e.target.classList.contains("border-red-500")) {
+      e.target.classList.remove("border-red-500");
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -72,6 +77,7 @@ export function RegisterView() {
             className="w-full rounded-sm border p-2 outline-none"
             type="email"
             name="email"
+            onChange={handleChange}
             placeholder="email"
           />
           <span className=" font-semibold max-sm:text-xs">
@@ -87,6 +93,7 @@ export function RegisterView() {
             max={64}
             type="password"
             name="password"
+            onChange={handleChange}
             placeholder="password"
             autoComplete="current-password"
           />
@@ -102,6 +109,7 @@ export function RegisterView() {
               className="w-full rounded-sm border p-2 outline-none"
               type="text"
               name="username"
+              onChange={handleChange}
               placeholder="Patrocleo"
             />
             <span className=" font-semibold max-sm:text-xs">
@@ -115,6 +123,7 @@ export function RegisterView() {
               className="w-full rounded-sm border p-2 outline-none"
               type="text"
               name="avatar"
+              onChange={handleChange}
               placeholder="Patrocleo"
             />
             <span className=" font-semibold max-sm:text-xs">
@@ -130,6 +139,7 @@ export function RegisterView() {
               className="w-full rounded-sm border p-2 outline-none"
               type="text"
               name="first_name"
+              onChange={handleChange}
               placeholder="Patrocleo"
             />
             <span className=" font-semibold max-sm:text-xs">
@@ -144,6 +154,7 @@ export function RegisterView() {
               className="w-full rounded-sm border p-2 outline-none"
               type="text"
               name="last_name"
+              onChange={handleChange}
               placeholder="Bimbo"
             />
             <span className=" font-semibold max-sm:text-xs">
