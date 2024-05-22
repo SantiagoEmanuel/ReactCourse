@@ -20,7 +20,7 @@ export function BottomNavigation() {
   };
 
   return (
-    <Container className="fixed bottom-0 hidden w-full items-center justify-evenly gap-4 rounded-t-lg border bg-white pl-1 pr-1 pt-2 text-black max-md:flex">
+    <Container className="fixed bottom-0 hidden w-full items-center justify-evenly gap-4 rounded-t-lg border bg-white pb-1 pl-1 pr-1 pt-2 text-black max-md:flex">
       <NavigationButton url={"/"} Icon={HomeIcon}>
         Home
       </NavigationButton>
