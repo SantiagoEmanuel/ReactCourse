@@ -38,9 +38,9 @@ export const useCart = () => {
   };
 
   const updateCart = (id) => {
+    x(id, cart);
     if (cart != null) {
-      x(id, cart);
-      toastSuccessNotification("Carrito Guardado");
+      toastSuccessNotification("Carrito guardado en la base de datos");
       deleteCart();
     }
   };
@@ -48,6 +48,7 @@ export const useCart = () => {
   const deleteItemCart = (id) => {
     const arrayCart = Object.entries(cart);
     if (arrayCart.length == 1) {
+      toastSuccessNotification("¡Carrito eliminado!");
       deleteCart();
       return;
     }
