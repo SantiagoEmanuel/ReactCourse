@@ -11,11 +11,14 @@ import {
   toastErrorNotification,
   toastSuccessNotification,
 } from "../functions/toastNotification";
+import { useProducts } from "./useProducts";
+import { updateStock } from "../functions/updateStock";
 
 export const useUser = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const { addCart, updateCart, deleteCart } = useCartToggleContext();
+  const { products } = useProducts();
 
   const login = async (email, password) => {
     const us = await loginUser(email, password);
@@ -53,6 +56,15 @@ export const useUser = () => {
       products: cart,
       total: total,
     };
+
+    cart.map(({ id, count }) => {
+      products.map((product) => {
+        if (id == product.id) {
+          updateStock({ product: product, newStock: product.stock - count });
+        }
+      });
+    });
+
     toastSuccessNotification("¡Orden generada!");
     const id = await generateOrder(order, user);
     deleteCart();
