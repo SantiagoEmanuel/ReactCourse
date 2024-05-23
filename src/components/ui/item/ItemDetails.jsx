@@ -6,7 +6,7 @@ export function ItemDetails({ id, imgUrl, title, price, description, stock }) {
 
   return (
     <article
-      className="flex flex-col items-center justify-center gap-24 pb-10 pt-24"
+      className="flex flex-col items-center justify-center gap-[7rem] pb-10 pt-24"
       key={id}
     >
       <header className="relative flex items-center justify-center">
@@ -30,11 +30,18 @@ export function ItemDetails({ id, imgUrl, title, price, description, stock }) {
             productID={id}
             initial={cart ? cart[id] : 0}
           />
-          <span className="text-center font-semibold text-orange-600">
-            ¡Quedan{" "}
-            {cart ? (isNaN(cart[id]) ? stock : stock - cart[id]) : stock}{" "}
-            disponibles!
-          </span>
+          {stock > 0 && (
+            <span className="text-center font-semibold text-orange-600">
+              ¡Quedan{" "}
+              {cart ? (isNaN(cart[id]) ? stock : stock - cart[id]) : stock}{" "}
+              disponibles!
+            </span>
+          )}
+          {stock == 0 && (
+            <span className="text-center font-semibold text-orange-600">
+              No hay stock disponible
+            </span>
+          )}
         </section>
         <section>
           <p className="text-balance text-center text-xl">{description}</p>
