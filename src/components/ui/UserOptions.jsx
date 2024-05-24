@@ -39,7 +39,7 @@ export function UserOptions() {
         <ShowAvatar
           avatar={user.avatar}
           alt={user.first_name + user.last_name}
-          className="w-[50px] rounded-full"
+          className={"w-[50px] rounded-full"}
         />
       </Button>
       <Menu
