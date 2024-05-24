@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { UserInfo } from "../components/UserInfo";
 import { Orders } from "../components/Orders";
+import { Container } from "../components/containers/Container";
 
 export function UserView() {
   const user = useUserContext();
@@ -11,24 +12,29 @@ export function UserView() {
 
   useEffect(() => {
     if (user != null) {
-      const data = [];
-      for (const key in user.orders) {
-        for (const anotherKey in user.orders[key]) {
-          data.push({
-            order: anotherKey,
-            products: Array.isArray(user.orders[key][anotherKey])
-              ? [...user.orders[key][anotherKey].flat()]
-              : [user.orders[key][anotherKey]],
-          });
-        }
-      }
-      setOrders(data);
+      const newData = [];
+      user.orders?.map((order) => {
+        const keys = Object.keys(order);
+        const details = [];
+        keys.map((key, index) => {
+          if (index == 0) {
+            details.push({
+              order: key,
+              products: order[key],
+              total: order["total"],
+            });
+            newData.push(...details);
+            return;
+          }
+        });
+      });
+      setOrders(newData);
     }
   }, [user]);
 
   if (!user) {
     return (
-      <div className="flex flex-col gap-4">
+      <Container className="flex flex-col gap-4">
         <h2>You are not log in.</h2>
         <Link
           to={"/login"}
@@ -36,16 +42,16 @@ export function UserView() {
         >
           Log in
         </Link>
-      </div>
+      </Container>
     );
   }
 
   return (
-    <section className="flex w-full flex-col gap-20">
+    <Container className="flex w-full flex-col gap-20">
       <UserInfo user={user} />
-      <section className="w-full">
+      <Container className="w-full">
         <Orders orders={orders} />
-      </section>
-    </section>
+      </Container>
+    </Container>
   );
 }
