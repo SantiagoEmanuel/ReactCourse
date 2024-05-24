@@ -71,6 +71,7 @@ export const useUser = () => {
     const newOrder = {};
 
     newOrder[id] = [...order.products];
+    newOrder["total"] = order.total;
     const newUserInfo = {
       ...user,
       username: user.username,
@@ -81,7 +82,7 @@ export const useUser = () => {
         user.orders != null ? [newOrder, ...user.orders.flat()] : [newOrder],
     };
     setUser(newUserInfo);
-    navigate(redirects.toHome);
+    navigate("/user");
     return;
   };
 

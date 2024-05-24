@@ -5,6 +5,7 @@ export const generateOrder = async (order, user) => {
   const data = await addDoc(collection(db, "orders"), order);
   const newOrder = {};
   newOrder[data.id] = [...order.products];
+  newOrder["total"] = order.total;
   const newUserInfo = {
     username: user.username,
     first_name: user.first_name,
