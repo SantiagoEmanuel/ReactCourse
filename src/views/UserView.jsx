@@ -16,8 +16,8 @@ export function UserView() {
       user.orders?.map((order) => {
         const keys = Object.keys(order);
         const details = [];
-        keys.map((key, index) => {
-          if (index == 0) {
+        keys.map((key) => {
+          if (key !== "total") {
             details.push({
               order: key,
               products: order[key],
