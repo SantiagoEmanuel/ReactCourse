@@ -8,7 +8,7 @@ export function CartIcon({ width, height }) {
       width={width}
       height={height}
       viewBox="0 0 510 510"
-      className="fill-current"
+      className="fill-black dark:fill-white dark:max-md:fill-black"
     >
       <g>
         <g id="shopping-cart">
