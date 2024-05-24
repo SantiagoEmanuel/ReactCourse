@@ -6,6 +6,7 @@ export const generateOrder = async (order, user) => {
   const newOrder = {};
   newOrder[data.id] = [...order.products];
   newOrder["total"] = order.total;
+  newOrder["status"] = order.status;
   const newUserInfo = {
     username: user.username,
     first_name: user.first_name,

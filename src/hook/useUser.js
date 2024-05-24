@@ -55,6 +55,7 @@ export const useUser = () => {
     const order = {
       products: cart,
       total: total,
+      status: "generado",
     };
 
     cart.map(({ id, count }) => {
@@ -72,6 +73,7 @@ export const useUser = () => {
 
     newOrder[id] = [...order.products];
     newOrder["total"] = order.total;
+    newOrder["status"] = order.status;
     const newUserInfo = {
       ...user,
       username: user.username,
