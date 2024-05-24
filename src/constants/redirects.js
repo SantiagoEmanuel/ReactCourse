@@ -5,4 +5,7 @@ export const redirects = [
   {
     toCart: "/cart",
   },
+  {
+    toProfile: "/user",
+  },
 ];
