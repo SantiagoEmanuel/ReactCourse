@@ -3,12 +3,12 @@ import { updateCart as x } from "../functions/updateCart";
 import { toastSuccessNotification } from "../functions/toastNotification";
 
 export const useCart = () => {
-  const [quantity, setQuantity] = useState(
-    localStorage.getItem("quantity") || 0,
-  );
-  const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart")) || null,
-  );
+  const getStorage = {
+    cart: JSON.parse(localStorage.getItem("cart")),
+    quantity: localStorage.getItem("quantity"),
+  };
+  const [quantity, setQuantity] = useState(getStorage.quantity || 0);
+  const [cart, setCart] = useState(getStorage.cart || null);
 
   const addCart = (userCart) => {
     if (userCart.length > 0) {
