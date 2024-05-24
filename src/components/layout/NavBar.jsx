@@ -13,14 +13,11 @@ export function NavBar() {
         E-Commerce {user && <p className="text-sm">Welcome {user.username}!</p>}
       </Brand>
       <nav className="flex items-center justify-around gap-6">
-        <div className="flex items-center justify-around gap-6 max-md:hidden">
-          <CategoriesList />
+        <CategoriesList />
+        <div className="max-md:hidden">
           <CartWidget />
-          <UserOptions />
         </div>
-        <div className="hidden content-center items-center max-md:flex">
-          <UserOptions />
-        </div>
+        <UserOptions />
       </nav>
     </header>
   );
