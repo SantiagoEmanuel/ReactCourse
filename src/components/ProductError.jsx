@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { Container } from "./containers/Container";
 
 export function ProductError() {
   const { id } = useParams();
 
   return (
-    <section className="flex flex-col gap-10">
+    <Container className="flex flex-col gap-10">
       <h2 className="text-balance">
         Producto con id: <span className="font-bold text-orange-500">{id}</span>{" "}
         no encontrado.
@@ -16,6 +17,6 @@ export function ProductError() {
       >
         Volver a inicio
       </Link>
-    </section>
+    </Container>
   );
 }

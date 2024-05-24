@@ -4,6 +4,7 @@ import { useProducts } from "../hook/useProducts";
 import { ItemCart } from "../components/ui/item/ItemCart";
 import { generateCartArray } from "../functions/generateCartArray";
 import { BuyCart } from "../components/ui/BuyCart";
+import { Container } from "../components/containers/Container";
 
 export function CartView() {
   const { cart } = useCartContext();
@@ -27,7 +28,7 @@ export function CartView() {
   }
 
   return (
-    <section className="flex w-full flex-col gap-4">
+    <Container className="flex w-full flex-col gap-4">
       {newCart?.map(({ id, imageUrl, title, count }) => (
         <ItemCart
           key={id}
@@ -43,6 +44,6 @@ export function CartView() {
           <BuyCart cart={newCart} total={total} />
         </>
       )}
-    </section>
+    </Container>
   );
 }

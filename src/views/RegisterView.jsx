@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useUserToggleContext } from "../hook/useUserToggleContext";
 import { creationValidateUser } from "../schema/user";
+import { Container } from "../components/containers/Container";
 
 export function RegisterView() {
   const { createNewUser } = useUserToggleContext();
@@ -64,7 +65,7 @@ export function RegisterView() {
   };
 
   return (
-    <section className=" flex w-full flex-col items-center gap-8">
+    <Container className=" flex w-full flex-col items-center gap-8">
       <h2 className="text-center text-3xl">Create your user</h2>
       <form
         onSubmit={handleSubmit}
@@ -166,6 +167,6 @@ export function RegisterView() {
           Create user
         </button>
       </form>
-    </section>
+    </Container>
   );
 }

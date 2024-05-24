@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useUserToggleContext } from "../hook/useUserToggleContext";
 import { loginValidateUser } from "../schema/user";
+import { Container } from "../components/containers/Container";
 
 export function LoginView() {
   const { login } = useUserToggleContext();
@@ -46,7 +47,7 @@ export function LoginView() {
   };
 
   return (
-    <section className=" flex w-full flex-col items-center gap-8">
+    <Container className=" flex w-full flex-col items-center gap-8">
       <h2 className="text-center text-2xl font-bold">Log in</h2>
       <form
         onSubmit={handleSubmit}
@@ -86,6 +87,6 @@ export function LoginView() {
           Log in
         </button>
       </form>
-    </section>
+    </Container>
   );
 }

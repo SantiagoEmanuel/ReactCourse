@@ -1,3 +1,3 @@
-export function Container({ children, ...styles }) {
-  return <section {...styles}>{children}</section>;
+export function Container({ children, className }) {
+  return <section className={className}>{children}</section>;
 }

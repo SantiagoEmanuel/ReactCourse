@@ -1,5 +1,6 @@
 import { itemFilter } from "../../functions/filterItems";
 import { Item } from "../ui/item/Item";
+import { Container } from "./Container";
 
 export function ItemList({
   items,
@@ -13,7 +14,7 @@ export function ItemList({
   });
 
   return (
-    <section className="grid grid-cols-3 gap-4 max-md:grid-cols-2">
+    <Container className="grid grid-cols-3 gap-4 max-md:grid-cols-2">
       {productFiltered.map(({ id, title, price, imageUrl, description }) => (
         <Item
           key={id}
@@ -24,6 +25,6 @@ export function ItemList({
           description={description}
         />
       ))}
-    </section>
+    </Container>
   );
 }

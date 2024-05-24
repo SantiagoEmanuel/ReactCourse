@@ -6,6 +6,7 @@ import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import { OrderInfo } from "../ui/order/OrderInfo";
+import { Container } from "./Container";
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -51,18 +52,20 @@ export function OrdersContainer({ orders }) {
   };
 
   return (
-    <section className="m-auto max-w-[500px]">
+    <Container className="m-auto max-w-[500px]">
       <h2 className="text-xl">My orders</h2>
-      {orders.map(({ order, products }, index) => (
+      {orders.map(({ order, products, total }, index) => (
         <Accordion
           expanded={expanded === `panel${index}`}
           onChange={handleChange(`panel${index}`)}
           key={order}
         >
           <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-            <Typography>{order}</Typography>
+            <Typography className="flex w-full justify-between">
+              <span>{order}</span> <span>generated</span>
+            </Typography>
           </AccordionSummary>
-          <AccordionDetails>
+          <AccordionDetails className="flex flex-col gap-4">
             {products.map(({ id, imageUrl, title, price, count }) => (
               <OrderInfo
                 key={order + id}
@@ -72,9 +75,10 @@ export function OrdersContainer({ orders }) {
                 count={count}
               />
             ))}
+            <p className="text-end">Total: ${total}</p>
           </AccordionDetails>
         </Accordion>
       ))}
-    </section>
+    </Container>
   );
 }

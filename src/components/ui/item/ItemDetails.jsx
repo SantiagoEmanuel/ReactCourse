@@ -1,4 +1,5 @@
 import { useCartContext } from "../../../hook/useCartContext";
+import { Container } from "../../containers/Container";
 import { ItemCount } from "./ItemCount";
 
 export function ItemDetails({ id, imgUrl, title, price, description, stock }) {
@@ -22,7 +23,7 @@ export function ItemDetails({ id, imgUrl, title, price, description, stock }) {
         />
       </header>
       <footer className="flex flex-col items-center gap-8">
-        <section className="flex w-full max-w-[400px] flex-col gap-4 px-2">
+        <Container className="flex w-full max-w-[400px] flex-col gap-4 px-2">
           <h3 className="text-2xl">{title}</h3>
           <span className="opacity-40">${price}</span>
           <ItemCount
@@ -42,10 +43,10 @@ export function ItemDetails({ id, imgUrl, title, price, description, stock }) {
               No hay stock disponible
             </span>
           )}
-        </section>
-        <section>
+        </Container>
+        <Container>
           <p className="text-balance text-center text-xl">{description}</p>
-        </section>
+        </Container>
       </footer>
     </article>
   );

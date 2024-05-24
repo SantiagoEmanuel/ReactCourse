@@ -1,12 +1,13 @@
 import { useRouteError } from "react-router-dom";
 import { Layout } from "../components/layout/Layout";
+import { Container } from "../components/containers/Container";
 
 export function ErrorView() {
   const { status, statusText, data } = useRouteError();
 
   return (
     <Layout>
-      <section className="flex flex-col items-center gap-12">
+      <Container className="flex flex-col items-center gap-12">
         <div className="flex flex-col items-center justify-center gap-8">
           <p>{data}</p>
           <div>
@@ -22,7 +23,7 @@ export function ErrorView() {
         >
           Go Home
         </a>
-      </section>
+      </Container>
     </Layout>
   );
 }
