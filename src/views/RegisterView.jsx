@@ -118,7 +118,9 @@ export function RegisterView() {
             </span>
           </label>
           <label className="flex w-full flex-col gap-1">
-            Avatar Url
+            <p>
+              Avatar Url <span className="text-xs opacity-40">*Opcional</span>
+            </p>
             <input
               id="avatar"
               className="w-full rounded-sm border p-2 outline-none"
