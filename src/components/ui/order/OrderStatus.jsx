@@ -10,9 +10,9 @@ export function OrderStatus({ status }) {
   useEffect(() => {
     if (status == "generado") {
       setStatusStyles(
-        "text-black font-bold text-sm border border-green-400 rounded-xl hover:bg-green-400 hover:bg-opacity-30",
+        "text-black font-bold text-sm border border-green-400 rounded-xl hover:bg-green-200 hover:bg-opacity-30",
       );
-      setDotColor("fill-green-400");
+      setDotColor("fill-black");
     }
     if (status == "inpago") {
       setStatusStyles(
@@ -21,7 +21,9 @@ export function OrderStatus({ status }) {
       setDotColor("fill-red-500");
     }
     if (status == "pago") {
-      statusStyles("text-green-400 font-bold text-sm");
+      setStatusStyles(
+        "text-green-400 font-bold text-sm border border-green-400 rounded-xl hover:bg-green-400 hover:bg-opacity-30",
+      );
       setDotColor("fill-green-400");
     }
   }, [status]);
