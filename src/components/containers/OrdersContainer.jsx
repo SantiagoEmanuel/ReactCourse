@@ -7,6 +7,7 @@ import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import { OrderInfo } from "../ui/order/OrderInfo";
 import { Container } from "./Container";
+import { OrderStatus } from "../ui/order/OrderStatus";
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -62,7 +63,7 @@ export function OrdersContainer({ orders }) {
         >
           <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
             <Typography className="flex w-full justify-between">
-              <span>{order}</span> <span>{status}</span>
+              <span>{order}</span> <OrderStatus status={status} />
             </Typography>
           </AccordionSummary>
           <AccordionDetails className="flex flex-col gap-4">
