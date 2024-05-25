@@ -17,10 +17,11 @@ export function UserView() {
         const keys = Object.keys(order);
         const details = [];
         keys.map((key) => {
-          if (key !== "total") {
+          if (key !== "total" && key !== "status") {
             details.push({
               order: key,
               products: order[key],
+              status: order["status"],
               total: order["total"],
             });
             newData.push(...details);

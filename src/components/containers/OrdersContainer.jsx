@@ -54,7 +54,7 @@ export function OrdersContainer({ orders }) {
   return (
     <Container className="m-auto max-w-[500px]">
       <h2 className="text-xl">My orders</h2>
-      {orders.map(({ order, products, total }, index) => (
+      {orders.map(({ order, products, total, status }, index) => (
         <Accordion
           expanded={expanded === `panel${index}`}
           onChange={handleChange(`panel${index}`)}
@@ -62,7 +62,7 @@ export function OrdersContainer({ orders }) {
         >
           <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
             <Typography className="flex w-full justify-between">
-              <span>{order}</span> <span>generated</span>
+              <span>{order}</span> <span>{status}</span>
             </Typography>
           </AccordionSummary>
           <AccordionDetails className="flex flex-col gap-4">
