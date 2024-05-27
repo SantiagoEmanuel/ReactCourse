@@ -1,4 +1,4 @@
-export function CartIcon({ width, height }) {
+export const CartIcon = ({ width, height }) => {
   return (
     <svg
       version="1.1"
@@ -22,4 +22,4 @@ export function CartIcon({ width, height }) {
       </g>
     </svg>
   );
-}
+};
