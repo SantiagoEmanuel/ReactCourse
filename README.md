@@ -133,18 +133,14 @@ FireStore
 
 En el root del proyecto puedes ejecutar los siguientes comandos.
 
-- `**npm run dev**`.
-  Inicia la aplicación en modom de desarrollo.
+- `**npm run dev**`.<br />
+  Inicia la aplicación en modom de desarrollo.<br />
   Abre http://localhost:5173 para verlo en tu navegador.
 
-<br />
-
-- `**npm run build**`.
+- `**npm run build**`.<br />
   Contruye la aplicación para producción en la carpeta `dist`.
 
-<br />
-
-- `**npm run preview**`.
+- `**npm run preview**`.<br />
   Sirve la aplicación construida desde la carpeta `dist`.
 
 ## Como contribuir
