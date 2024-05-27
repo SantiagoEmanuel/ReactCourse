@@ -131,7 +131,7 @@ FireStore
 
 ## Scripts Disponibles
 
-<span style:"opacity: .6;">En el root del proyecto puedes ejecutar los siguientes comandos</span>.
+<span style:"opacity: 0.6">En el root del proyecto puedes ejecutar los siguientes comandos</span>.
 
 - `**npm run dev**`.
   Inicia la aplicación en modom de desarrollo.
