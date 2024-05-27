@@ -3,7 +3,7 @@ import { auth, db } from "../api/firebaseConnection";
 import { doc, getDoc } from "firebase/firestore";
 import { toastErrorNotification } from "./toastNotification";
 
-export const loginUser = async (email, password) => {
+export async function loginUser(email, password) {
   const userCredentials = await signInWithEmailAndPassword(
     auth,
     email,
@@ -26,4 +26,4 @@ export const loginUser = async (email, password) => {
     },
   ];
   return { ...userCredentials.user, ...userInfo, cart: cart };
-};
+}

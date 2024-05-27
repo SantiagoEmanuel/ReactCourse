@@ -1,7 +1,7 @@
 import { doc, addDoc, setDoc, collection } from "firebase/firestore";
 import { db } from "../api/firebaseConnection";
 
-export const generateOrder = async (order, user) => {
+export async function generateOrder(order, user) {
   const data = await addDoc(collection(db, "orders"), order);
   const newOrder = {};
   newOrder[data.id] = [...order.products];
@@ -19,4 +19,4 @@ export const generateOrder = async (order, user) => {
   };
   setDoc(doc(db, "userInfo", user.uid), newUserInfo);
   return data.id;
-};
+}
