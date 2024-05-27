@@ -20,7 +20,7 @@ export function OrderStatus({ status }) {
       );
       setDotColor("fill-red-500");
     }
-    if (status == "pago") {
+    if (status == "pagado") {
       setStatusStyles(
         "text-green-400 font-bold text-sm border border-green-400 rounded-xl hover:bg-green-400 hover:bg-opacity-30",
       );
