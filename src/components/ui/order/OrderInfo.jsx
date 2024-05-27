@@ -1,4 +1,4 @@
-export const OrderInfo = ({ imageUrl, title, price, count }) => {
+export function OrderInfo({ imageUrl, title, price, count }) {
   return (
     <article className="flex w-full items-center justify-between overflow-hidden">
       <header>
@@ -17,4 +17,4 @@ export const OrderInfo = ({ imageUrl, title, price, count }) => {
       </footer>
     </article>
   );
-};
+}
